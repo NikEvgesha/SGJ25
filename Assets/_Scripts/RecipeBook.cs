@@ -28,12 +28,22 @@ public class RecipeBook : MonoBehaviour
     }
     void Start()
     {
-        foreach (Recipe recipe in _recipes)
-        {
-            _unlockedStatus.Add(recipe, 0);
-        }
-        Debug.Log("Set recipe book");
         G.Game.SetRecipeBook(this);
+        List<int> statuses = G.SaveManager.LoadRecipeStatuses();
+        
+        if (statuses.Count != 0)
+        {
+            for (int i = 0; i < _recipes.Count; i++)
+            {
+                _unlockedStatus.Add(_recipes[i], statuses[i]);
+            }
+        } else
+        {
+            foreach (Recipe recipe in _recipes)
+            {
+                _unlockedStatus.Add(recipe, 0);
+            }
+        }      
     }
 
     private void Update()
@@ -81,7 +91,7 @@ public class RecipeBook : MonoBehaviour
 
 
         _dynamicPageLeft.transform.parent.gameObject.SetActive(true);
-        _animator.SetTrigger("Next");
+        
         if (_currentRecipeLastIndex + 2 < _recipes.Count)
         {
             _rightPage.SetRecipe(_recipes[_currentRecipeLastIndex + 2]);
@@ -91,6 +101,7 @@ public class RecipeBook : MonoBehaviour
         {
             _rightPage.SetRecipe();
         }
+        _animator.SetTrigger("Next");
     }
 
     public void NextComplete()
@@ -158,6 +169,40 @@ public class RecipeBook : MonoBehaviour
     public void UpdateUnlockStatus(Recipe recipe, int idx)
     {
         _unlockedStatus[recipe] = _unlockedStatus[recipe] ^ (1 << idx);
+        Save();
+    }
+
+    private void Save()
+    {
+        List<int> statuses = new(_recipes.Count);
+        foreach (Recipe recipe in _recipes) {
+            statuses.Add(_unlockedStatus[recipe]);
+        }
+        G.SaveManager.SaveRecipeStatuses(statuses);
+    }
+
+    public Ingredient CheckRecipe(List<Ingredient> ingredients)
+    {
+        if (ingredients.Count != 3) return _failRecipe.ResultIngredient;
+
+
+        foreach (Recipe recipe in _recipes)
+        {
+            bool check = true;
+            for (int i = 0; i < ingredients.Count; i++)
+            {
+                if (recipe.Ingredients.Contains(ingredients[i]))
+                {
+                    check = false; 
+                    break;
+                }
+            }
+            if (check)
+                return recipe.ResultIngredient;
+        }
+
+        return _failRecipe.ResultIngredient;
+
     }
 
 }

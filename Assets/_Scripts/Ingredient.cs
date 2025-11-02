@@ -9,6 +9,7 @@ public struct IngredientData
     //public int InsightPrice;
     public Sprite Icon;
     public string hint;
+    public ItemType Type;
 
 
     //public static bool operator ==(IngredientData c1, IngredientData c2)

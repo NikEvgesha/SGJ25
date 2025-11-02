@@ -15,11 +15,11 @@ public class IngredientSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private int _unlockPrice;
     public UnityEvent<Ingredient> IngredientUnlocked;
 
-    public void SetData(UnlockableIngredient ingredient, bool unlocked)
+    public void SetData(Ingredient ingredient, int price, bool unlocked)
     {
         _unlocked = unlocked;
-        _ingredient = ingredient.Ingredient;
-        _unlockPrice = ingredient.InsightPrice;
+        _ingredient = ingredient;
+        _unlockPrice = price;
 
         _icon.sprite = _ingredient.Data.Icon;
         _hint.text = _ingredient.Data.hint;

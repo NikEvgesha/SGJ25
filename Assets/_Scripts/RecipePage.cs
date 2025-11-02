@@ -17,6 +17,8 @@ public class RecipePage : MonoBehaviour
     private Recipe _recipe;
     private int _status;
 
+    public Recipe RECIPE;
+
     private void Start()
     {
         _ingredientSlots = GetComponentsInChildren<IngredientSlot>().ToList();
@@ -24,6 +26,11 @@ public class RecipePage : MonoBehaviour
         {
             slot.IngredientUnlocked.AddListener(OnIngredientUnlock);
         }
+    }
+
+    private void Update()
+    {
+        RECIPE = _recipe;
     }
 
     public void SetRecipe(Recipe recipe=null)
@@ -60,7 +67,7 @@ public class RecipePage : MonoBehaviour
         //{
             for (int i = recipe.Ingredients.Count-1; i >= 0; i--)
             {
-                _ingredientSlots[i].SetData(recipe.Ingredients[i], ((_status >> i) & 1) == 1);
+                _ingredientSlots[i].SetData(recipe.Ingredients[i], recipe.UnlockIngredientPrice, ((_status >> i) & 1) == 1);
             }
             //_lockedPanel.SetActive(false);
         //}
@@ -73,9 +80,8 @@ public class RecipePage : MonoBehaviour
     {
         for (int i = 0; i < _recipe.Ingredients.Count; i++) 
         {
-            if (_recipe.Ingredients[i].Ingredient == ingredient)
+            if (_recipe.Ingredients[i] == ingredient)
             {
-                Debug.Log("Check index: " + i);
                 G.Game.RecipeBook.UpdateUnlockStatus(_recipe, i);
                 return;
             }

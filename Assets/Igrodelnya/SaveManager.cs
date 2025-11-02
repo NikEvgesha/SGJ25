@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class SaveManager : MonoBehaviour
 {
+    public bool ResetProgress;
     private void Awake()
     {
         if (G.SaveManager == null)
@@ -16,6 +19,9 @@ public class SaveManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (ResetProgress)
+            Reset();
+
     }
 
 
@@ -26,10 +32,33 @@ public class SaveManager : MonoBehaviour
 
     public int LoadCoins() 
     {
-        return PlayerPrefs.GetInt("Coins", 0);
+        return PlayerPrefs.GetInt("Coins", -1);
     }
 
-    
+    public void SaveInsight(int amount)
+    {
+        PlayerPrefs.SetInt("Insight", amount);
+    }
+
+    public int LoadInsight()
+    {
+        return PlayerPrefs.GetInt("Insight", -1);
+    }
+
+    public void SaveRecipeStatuses(List<int> statuses)
+    {
+        PlayerPrefs.SetString("Recipes", string.Join(";", statuses.Select(x => x.ToString()).ToArray()));
+    }
+
+    public List<int> LoadRecipeStatuses()
+    {
+        string loaded = PlayerPrefs.GetString("Recipes", "");
+        if (loaded.Length == 0)
+            return new List<int>();
+        return Array.ConvertAll(loaded.Split(';'), int.Parse).ToList();
+    }
+
+
     public void Reset()
     {
         PlayerPrefs.DeleteAll();

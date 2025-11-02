@@ -41,10 +41,23 @@ public class CurrencyManager : MonoBehaviour
 
     private void Start()
     {
-        //AddCurrency(CurrencyType.Coin, G.SaveManager.LoadCoins());
-        //AddCurrency(CurrencyType.Insight, G.SaveManager.LoadInsight());
-        AddCurrency(CurrencyType.Coin, _startCoinsAmount);
-        AddCurrency(CurrencyType.Insight, _startInsightAmount);
+        int insight = G.SaveManager.LoadInsight();
+        if (insight == -1)
+        {
+            AddCurrency(CurrencyType.Insight, _startInsightAmount);
+        } else
+        {
+            AddCurrency(CurrencyType.Insight, insight);
+        }
+        int coins = G.SaveManager.LoadCoins();
+        if (coins == -1)
+        {
+            AddCurrency(CurrencyType.Coin, _startCoinsAmount);
+        }
+        else
+        {
+            AddCurrency(CurrencyType.Coin, coins);
+        }
 
 
     }
@@ -63,8 +76,12 @@ public class CurrencyManager : MonoBehaviour
         //        _audioSource.PlayOneShot(_audioSell);
         _amount[type] += amount;
         CurrencyChanged?.Invoke(type, _amount[type]);
-        //G.SaveManager.SaveCoins(_amount);
-       //G.SaveManager.SaveGameCoin(_balance[type]);
+        if (type == CurrencyType.Coin) {
+            G.SaveManager.SaveCoins(_amount[type]);
+        } else
+        {
+            G.SaveManager.SaveInsight(_amount[type]);
+        }
     }
 
     public bool RemoveCurrency(CurrencyType type, int amount)
@@ -77,8 +94,15 @@ public class CurrencyManager : MonoBehaviour
 
             _amount[type] -= amount;
             CurrencyChanged?.Invoke(type, _amount[type]);
-            //G.SaveManager.SaveCoins(_amount);
-            //G.SaveManager.SaveGameCoin(_balance[type]);
+            if (type == CurrencyType.Coin)
+            {
+                G.SaveManager.SaveCoins(_amount[type]);
+            }
+            else
+            {
+                G.SaveManager.SaveInsight(_amount[type]);
+            }
+
             return true;
         }
         if (type == CurrencyType.Coin)
