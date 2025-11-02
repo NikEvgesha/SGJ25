@@ -20,7 +20,7 @@ public class SeeInCamera : MonoBehaviour
 
         if (!_mainCamera)
         {
-            Camera[] cameras = FindObjectsOfType<Camera>();
+            Camera[] cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
             foreach (var camera in cameras)
             {
                 if (camera.tag == "MainCamera")

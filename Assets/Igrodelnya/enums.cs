@@ -19,9 +19,8 @@ public enum Rarity
 
 public enum ItemType
 {
-    Consumable,
-    Sellable,
-    Usable
+    Endless,
+    Potion
 }
 
 

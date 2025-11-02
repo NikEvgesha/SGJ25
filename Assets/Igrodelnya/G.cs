@@ -6,10 +6,11 @@ public static class G
     public static GameLoader GameLoader;
     public static LocalizationManager LocalizationManager;
     public static Settings Settings;
-    //public static CustomPlayerInput Input;
+    public static PlayerInput Input;
     public static GameManager Game;
     public static ControlManager Control;
     public static CurrencyManager Currency;
+    public static Player Player;
 
     //public static PlayerStatManager PlayerStatManager;
 

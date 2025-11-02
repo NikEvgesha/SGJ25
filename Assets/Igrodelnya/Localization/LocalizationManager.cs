@@ -81,7 +81,7 @@ public class LocalizationManager : MonoBehaviour
         OnLanguageChanged?.Invoke(newLanguage);
 
         // Обновляем все объекты с локализованным текстом
-        foreach (LocalizedText text in FindObjectsOfType<LocalizedText>())
+        foreach (LocalizedText text in FindObjectsByType<LocalizedText>(FindObjectsSortMode.None))
         {
             text.SetLanguage(newLanguage);
         }

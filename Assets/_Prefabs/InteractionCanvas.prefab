@@ -369,8 +369,8 @@ GameObject:
   - component: {fileID: 548804363811297730}
   - component: {fileID: 903851280931820701}
   - component: {fileID: 6895989025546264776}
-  - component: {fileID: 8000913040762188868}
-  - component: {fileID: 1822173675065828601}
+  - component: {fileID: 545281229100656585}
+  - component: {fileID: 8025941860122634308}
   m_Layer: 0
   m_Name: InteractionCanvas
   m_TagString: Untagged
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8000913040762188868
+--- !u!114 &545281229100656585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,7 +447,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5390491321218687011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0135e5a0b32df444ebdb0fd7954193cf, type: 3}
+  m_Script: {fileID: 11500000, guid: fc7f29994bafd3b4992cedb84dbdeb5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeeInCamera
+  _mainCamera: {fileID: 0}
+  testVector: 0
+  Vector3Test: {x: 0, y: 0, z: 0}
+--- !u!114 &8025941860122634308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5390491321218687011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdf27b63e4a8774e871432f0c4dae43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionPanel
   _fillImg: {fileID: 7914298898665118255}
@@ -457,21 +472,6 @@ MonoBehaviour:
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1822173675065828601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5390491321218687011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1ab92e016ad5904e8467db0c7ef04d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SeeInCamera
-  _mainCamera: {fileID: 0}
-  testVector: 0
-  Vector3Test: {x: 0, y: 0, z: 0}
 --- !u!1 &5918177370167169906
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class GameLoader : MonoBehaviour
     private string _currentSceneName;
     private AsyncOperation _asyncOperation;
 
-    private bool _startLoadingFinished = false;
     public Action OnSceneLoaded;
 
 
