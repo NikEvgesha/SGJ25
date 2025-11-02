@@ -27,9 +27,11 @@ public class GameManager : MonoBehaviour
 
     public void OnGameStart()
     {
+        Debug.Log("Start");
         GameStart?.Invoke();
         G.IsPaused = false;
-        G.Control.CursorActive = false;
+        G.Control.CursorActive = true;
+        //G.Control.CursorActive = false;
     }
 
     public void OnGameEnd(bool win = false)

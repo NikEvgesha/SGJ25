@@ -8,6 +8,7 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private Sprite _coinIcon;
     [SerializeField] private Sprite _insightIcon;
     [SerializeField] private int _startCoinsAmount;
+    [SerializeField] private int _startInsightAmount;
 
     [SerializeField] private AudioClip _audioBuy;
     [SerializeField] private AudioClip _audioSell;
@@ -40,7 +41,12 @@ public class CurrencyManager : MonoBehaviour
 
     private void Start()
     {
-        AddCurrency(CurrencyType.Coin, G.SaveManager.LoadCoins());
+        //AddCurrency(CurrencyType.Coin, G.SaveManager.LoadCoins());
+        //AddCurrency(CurrencyType.Insight, G.SaveManager.LoadInsight());
+        AddCurrency(CurrencyType.Coin, _startCoinsAmount);
+        AddCurrency(CurrencyType.Insight, _startInsightAmount);
+
+
     }
 
 

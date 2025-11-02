@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4a5769a41728c42bfcbae9715359ab, type: 3}
+  m_Name: 2
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  _name: Potion #2
+  _description: description description descriptiondescriptiondescription
+  _ingredients:
+  - Ingredient: {fileID: 1550827692948415221, guid: ec41bf6b0e311454cae859f512f468f0, type: 3}
+    InsightPrice: 2
+  - Ingredient: {fileID: 783085912046224136, guid: e8e7aac2653c93443b1aeb07f2d300c3, type: 3}
+    InsightPrice: 2
+  - Ingredient: {fileID: 8370306325074081913, guid: 60763bc9820e9604f933cb4ba20ca3d0, type: 3}
+    InsightPrice: 2
+  _insightReward: 3
+  _sellPrice: 15
+  _icon: {fileID: 21300000, guid: ccc133a283f1457458e3a967a5535268, type: 3}
+  _startRecipe: 1
