@@ -54,7 +54,7 @@ public class ItemTaked : MonoBehaviour
     }
 
 
-    public void PutDown(Transform point,bool del = false)
+    public void PutDown(Transform point,bool del = false,bool hide = false)
     {
         //this.gameObject.layer = 6;
 
@@ -67,27 +67,27 @@ public class ItemTaked : MonoBehaviour
         G.Player.Hand.SetCurrentItem(null);
         IsTaken = false;
 
-        StartMoveToParent(point, del);
+        StartMoveToParent(point, del, hide);
     }
-    public void MoveToParent(Transform point, bool del = false)
+    public void MoveToParent(Transform point, bool del = false, bool hide = false)
     {
         if (_moveRoutine != null)
         {
             StopCoroutine(_moveRoutine);
             _moveRoutine = null;
         }
-        StartMoveToParent(point, del);
+        StartMoveToParent(point, del, hide);
     }
 
-    private void StartMoveToParent(Transform parent,bool del = false)
+    private void StartMoveToParent(Transform parent,bool del = false, bool hide = false)
     {
         if (_moveRoutine != null)
             StopCoroutine(_moveRoutine);
 
 
-        _moveRoutine = StartCoroutine(MoveToParentRoutine(parent, del));
+        _moveRoutine = StartCoroutine(MoveToParentRoutine(parent, del, hide));
     }
-    private IEnumerator MoveToParentRoutine(Transform parent, bool del = false)
+    private IEnumerator MoveToParentRoutine(Transform parent, bool del = false, bool hide = false)
     {
         // ѕростой вариант: сразу прив€зываем к parent, но сохран€ем мировую позу (чтобы не было скачка),
         // затем плавно ведЄм Ћќ јЋ№Ќџ≈ position/rotation к целевым.
@@ -122,5 +122,6 @@ public class ItemTaked : MonoBehaviour
         _moveRoutine = null;
 
         if (del) Destroy(gameObject);
+        if (hide) gameObject.SetActive(false);
     }
 }

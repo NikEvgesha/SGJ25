@@ -42,7 +42,7 @@ public class Сauldron : MonoBehaviour
     public void Interact()
     {
         ItemTaked item = G.Player.Hand.CurrentItem;
-        G.Player.Hand.CurrentItem.PutDown(_pointSocket,true);
+        G.Player.Hand.CurrentItem.PutDown(_pointSocket,false,true);
         AddItem(item);
     }
     private void AddItem(ItemTaked item)
@@ -53,6 +53,10 @@ public class Сauldron : MonoBehaviour
         {
             _water.SetActive(false);
             CheckRecept();
+            foreach (var ingredient in _ingredients)
+            {
+                Destroy(ingredient.gameObject);
+            }
             _ingredients.Clear();
         }
     }
