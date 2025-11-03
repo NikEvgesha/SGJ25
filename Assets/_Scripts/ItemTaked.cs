@@ -14,6 +14,7 @@ public class ItemTaked : MonoBehaviour
     // --- Runtime ---
     private Coroutine _moveRoutine;
     private Item _item;
+    public Item Item => _item;
     private Outline _outline;
 
     public bool IsTaken { get; private set; }

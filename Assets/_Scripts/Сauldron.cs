@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Сauldron : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Сauldron : MonoBehaviour
     [SerializeField] private InteractionPanel _interactionPanel;
     [SerializeField] private GameObject _water;
 
+    private List<Ingredient> _ingredients = new();
 
     private List<ItemTaked> _listItemsInСauldron = new();
     private Outline _outline;
@@ -39,24 +41,29 @@ public class Сauldron : MonoBehaviour
 
     public void Interact()
     {
+        ItemTaked item = G.Player.Hand.CurrentItem;
         G.Player.Hand.CurrentItem.PutDown(_pointSocket,true);
-        AddItem(G.Player.Hand.CurrentItem); 
+        AddItem(item);
     }
     private void AddItem(ItemTaked item)
     {
-
+        _ingredients.Add(item.Item.Ingredient);
         _water.SetActive(true);
-        _listItemsInСauldron.Add(item);
-        if (_listItemsInСauldron.Count >= 3)
+        if (_ingredients.Count >= 3)
         {
-
             _water.SetActive(false);
             CheckRecept();
-            _listItemsInСauldron.Clear();
+            _ingredients.Clear();
         }
     }
     private void CheckRecept()
     {
-
+        Ingredient newIngredient = G.Game.RecipeBook.CheckRecipe(_ingredients);
+        if (!newIngredient)
+        {
+            return;
+        }
+        ItemTaked newItem = Instantiate(newIngredient, _pointSocket).GetComponent<ItemTaked>();
+        newItem.Take();
     }
 }

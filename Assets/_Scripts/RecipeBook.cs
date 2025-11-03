@@ -212,7 +212,7 @@ public class RecipeBook : MonoBehaviour
             bool check = true;
             for (int i = 0; i < ingredients.Count; i++)
             {
-                if (recipe.Ingredients.Contains(ingredients[i]))
+                if (!recipe.Ingredients.Contains(ingredients[i]))
                 {
                     check = false;
                     break;

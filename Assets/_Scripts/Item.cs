@@ -5,6 +5,7 @@ public class Item : MonoBehaviour
     [SerializeField] private ItemType _itemType;
     private Ingredient _ingredient;
     public ItemType Type => _itemType;
+    public Ingredient Ingredient => _ingredient;
     public IngredientData Data => _ingredient.Data;
 
     private void Awake()
