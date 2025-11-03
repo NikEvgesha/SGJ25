@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.ProBuilder.MeshOperations;
 
 public class RecipeBook : MonoBehaviour
@@ -12,7 +13,6 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] RecipePage _dynamicPageRight;
     [SerializeField] private GameObject _nextButton;
     [SerializeField] private GameObject _prevButton;
-    [SerializeField] private NewRecipeNotification _notification;
     [SerializeField] private AudioClip _newRecipeSound;
     [SerializeField] private AudioClip _pageSound;
 
@@ -23,12 +23,14 @@ public class RecipeBook : MonoBehaviour
     private int _currentRecipeLastIndex;
     private Dictionary<Recipe, int> _unlockedStatus; // 0 .. 7
 
-    int currentLeft;
-    int currentRight;
-    int prevRight;
-    int prevLeft;
-    int nextRight;
-    int nextLeft;
+    private int currentLeft;
+    private int currentRight;
+    private int prevRight;
+    private int prevLeft;
+    private int nextRight;
+    private int nextLeft;
+
+    public UnityEvent<Recipe> NewRecipe;
 
     private void Awake()
     {
@@ -62,7 +64,7 @@ public class RecipeBook : MonoBehaviour
 
     public void Open()
     {
-
+        _opened = true;
         _leftPage.SetRecipe();
         _rightPage.SetRecipe(_recipes[0]);
         _currentRecipeLastIndex = 0;
@@ -76,6 +78,7 @@ public class RecipeBook : MonoBehaviour
 
     public void Close()
     {
+        _opened = false;
         _animator.SetTrigger("Close");
         //_navigationButtons.SetActive(false);
         G.Control.CursorActive = false;
@@ -197,18 +200,18 @@ public class RecipeBook : MonoBehaviour
         return _unlockedStatus[recipe];
     }
 
-    public int UpdateUnlockStatus(Recipe recipe, int idx)
+    public int UpdateUnlockStatus(Recipe recipe, int idx=-1)
     {
-        _unlockedStatus[recipe] = _unlockedStatus[recipe] ^ (1 << idx);
+        if (idx != -1)
+            _unlockedStatus[recipe] = _unlockedStatus[recipe] ^ (1 << idx);
+        else
+            _unlockedStatus[recipe] = 7;
+
         if (_unlockedStatus[recipe] == 7)
         {
             _audio.PlayOneShot(_newRecipeSound);
-            //if (!_opened)
-            //{
-            _notification.gameObject.SetActive(true);
-            _notification.Init(recipe);
-            //            }
-
+            if (!_opened)
+                NewRecipe?.Invoke(recipe);
         }
 
         Save();
@@ -255,8 +258,9 @@ public class RecipeBook : MonoBehaviour
             {
                 if (GetUnlockStatus(recipe) != 7)
                 {
-                    UpdateUnlockStatus(recipe, 7);
+                    UpdateUnlockStatus(recipe);
                 }
+                G.Currency.AddCurrency(CurrencyType.Insight, recipe.InsightReward);
                 return recipe.ResultIngredient;
             }
 

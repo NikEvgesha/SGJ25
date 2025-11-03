@@ -65,9 +65,11 @@ public class RecipePage : MonoBehaviour
         if (_status != 7)
         {
             _icon.color = Color.black;
+            _descriptionText.color = new Color(_descriptionText.color.r, _descriptionText.color.g, _descriptionText.color.b, 0f);
         } else
         {
             _icon.color = Color.white;
+            _descriptionText.color = Color.black;
         }
 
     }
@@ -98,14 +100,16 @@ public class RecipePage : MonoBehaviour
     private IEnumerator UnlockRevealAnimation()
     {
         float elapsedTime = 0f;
-
+        Color transparent = _descriptionText.color;
         while (elapsedTime < _revealDuration)
         {
             _icon.color = Color.Lerp(Color.black, Color.white, elapsedTime / _revealDuration);
+            _descriptionText.color = Color.Lerp(transparent, Color.black, elapsedTime / _revealDuration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         _icon.color = Color.white;
+        _descriptionText.color = Color.black;
     }
 
 }

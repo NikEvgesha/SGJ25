@@ -20,5 +20,5 @@ MonoBehaviour:
   - {fileID: 8370306325074081913, guid: f396b9158a114a748a794a99bbb3e510, type: 3}
   _insightReward: 10
   _unlockInsightPrice: 20
-  _icon: {fileID: 21300000, guid: ccc133a283f1457458e3a967a5535268, type: 3}
+  _icon: {fileID: 21300000, guid: b313e1f54d11465479c81e6decfc31b5, type: 3}
   _potionIngredient: {fileID: 8370306325074081913, guid: ffe827191a8f93641adb1235c26c3b23, type: 3}

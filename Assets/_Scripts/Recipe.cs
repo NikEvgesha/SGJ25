@@ -19,4 +19,5 @@ public class Recipe : ScriptableObject
     public Sprite Icon => _icon;
     public int UnlockIngredientPrice => _unlockInsightPrice;
     public Ingredient ResultIngredient => _potionIngredient;
+    public int InsightReward => _insightReward;
 }

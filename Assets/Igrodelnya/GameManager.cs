@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public UnityEvent<bool> GameEnd;
     public UnityEvent GameStart;
+    public UnityEvent BookReady;
 
 
 
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
     public void SetRecipeBook(RecipeBook book)
     {
         _recipeBook = book;
+        BookReady?.Invoke();
     }
 
 
