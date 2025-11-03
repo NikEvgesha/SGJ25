@@ -59,6 +59,7 @@ public class SoundManager : MonoBehaviour
             //MasterVolume = _soundVolume;
             //SaveManager.Instance.SaveSoundVolume(_soundVolume);
             //Debug.Log($"Sound SFX volume set to: {_soundVolume} (db={db})");
+            G.SaveManager.SaveSoundVolume(value);
         }
     }
 
@@ -76,6 +77,7 @@ public class SoundManager : MonoBehaviour
             //MasterVolume = _musicVolume;
             //SaveManager.Instance.SaveMusicVolume(_musicVolume);
             //Debug.Log($"Music volume set to: {_musicVolume} (db={db})");
+            G.SaveManager.SaveMusicVolume(value);
         }
     }
 
@@ -103,9 +105,8 @@ public class SoundManager : MonoBehaviour
     private void StartGame()
     {
         // ��������� ����������� ���������
-        //float[] volume = SaveManager.Instance.GetVolume();
-        MusicVolume = 0.5f; //volume[0];
-        SoundVolume = 0.5f; //volume[1];
+        MusicVolume = G.SaveManager.LoadMusicVolume();
+        SoundVolume = G.SaveManager.LoadSoundVolume();
 
         IsReady = true;
         Ready?.Invoke();

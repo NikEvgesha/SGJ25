@@ -58,6 +58,27 @@ public class SaveManager : MonoBehaviour
         return Array.ConvertAll(loaded.Split(';'), int.Parse).ToList();
     }
 
+    public void SaveMusicVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+
+    public float LoadMusicVolume()
+    {
+        return PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+    }
+
+    public void SaveSoundVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("SoundVolume", volume);
+    }
+
+    public float LoadSoundVolume()
+    {
+        return PlayerPrefs.GetFloat("SoundVolume", 0.5f);
+    }
+
+
 
     public void Reset()
     {
