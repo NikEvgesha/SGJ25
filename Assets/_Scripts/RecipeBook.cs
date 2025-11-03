@@ -11,13 +11,16 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] RecipePage _dynamicPageRight;
     [SerializeField] private GameObject _nextButton;
     [SerializeField] private GameObject _prevButton;
+    [SerializeField] private NewRecipeNotification _notification;
+    [SerializeField] private AudioClip _newRecipeSound;
+    [SerializeField] private AudioClip _pageSound;
+
+    private AudioSource _audio;
     private GameObject _navigationButtons;
     private Animator _animator;
     private bool _opened;
     private int _currentRecipeLastIndex;
-    private Dictionary<Recipe, int> _unlockedStatus; // -1 .. 7
-
-    [SerializeField] public int Current;
+    private Dictionary<Recipe, int> _unlockedStatus; // 0 .. 7
 
     private void Awake()
     {
@@ -25,35 +28,33 @@ public class RecipeBook : MonoBehaviour
         _navigationButtons = _nextButton.transform.parent.gameObject;
         _navigationButtons.SetActive(false);
         _unlockedStatus = new Dictionary<Recipe, int>();
+        _audio = GetComponent<AudioSource>();
     }
     void Start()
     {
         G.Game.SetRecipeBook(this);
         List<int> statuses = G.SaveManager.LoadRecipeStatuses();
-        
+
         if (statuses.Count != 0)
         {
             for (int i = 0; i < _recipes.Count; i++)
             {
                 _unlockedStatus.Add(_recipes[i], statuses[i]);
             }
-        } else
+        }
+        else
         {
             foreach (Recipe recipe in _recipes)
             {
                 _unlockedStatus.Add(recipe, 0);
             }
-        }      
+        }
     }
 
-    private void Update()
-    {
-        Current = _currentRecipeLastIndex;
-    }
 
     public void Open()
     {
-        
+
         _leftPage.SetRecipe();
         _rightPage.SetRecipe(_recipes[0]);
         _currentRecipeLastIndex = 0;
@@ -63,7 +64,7 @@ public class RecipeBook : MonoBehaviour
         CheckNavigation();
     }
 
-    public void Close() 
+    public void Close()
     {
         _animator.SetTrigger("Close");
         //_navigationButtons.SetActive(false);
@@ -76,7 +77,8 @@ public class RecipeBook : MonoBehaviour
         if (_opened)
         {
             Open();
-        } else
+        }
+        else
         {
             Close();
         }
@@ -91,7 +93,7 @@ public class RecipeBook : MonoBehaviour
 
 
         _dynamicPageLeft.transform.parent.gameObject.SetActive(true);
-        
+
         if (_currentRecipeLastIndex + 2 < _recipes.Count)
         {
             _rightPage.SetRecipe(_recipes[_currentRecipeLastIndex + 2]);
@@ -102,6 +104,7 @@ public class RecipeBook : MonoBehaviour
             _rightPage.SetRecipe();
         }
         _animator.SetTrigger("Next");
+        _audio.PlayOneShot(_pageSound);
     }
 
     public void NextComplete()
@@ -122,19 +125,21 @@ public class RecipeBook : MonoBehaviour
 
     public void PreviousPage()
     {
-        _dynamicPageRight.SetRecipe(_recipes[_currentRecipeLastIndex-1]);
-        if (_currentRecipeLastIndex - 1>= 0)
+        _dynamicPageRight.SetRecipe(_recipes[_currentRecipeLastIndex - 1]);
+        if (_currentRecipeLastIndex - 1 >= 0)
             _dynamicPageLeft.SetRecipe(_recipes[_currentRecipeLastIndex - 2]);
 
 
         _dynamicPageLeft.transform.parent.gameObject.SetActive(true);
-        _animator.SetTrigger("Previous");
+        
         if (_currentRecipeLastIndex - 3 >= 0)
             _leftPage.SetRecipe(_recipes[_currentRecipeLastIndex - 3]);
         else
         {
             _leftPage.SetRecipe();
         }
+        _animator.SetTrigger("Previous");
+        _audio.PlayOneShot(_pageSound);
     }
 
     public void PreviousComplete()
@@ -155,9 +160,9 @@ public class RecipeBook : MonoBehaviour
 
     private void CheckNavigation()
     {
-        _nextButton.gameObject.SetActive(_currentRecipeLastIndex+1 < _recipes.Count);
+        _nextButton.gameObject.SetActive(_currentRecipeLastIndex + 1 < _recipes.Count);
         _prevButton.gameObject.SetActive(_currentRecipeLastIndex - 2 >= 0);
-            
+
     }
 
 
@@ -166,16 +171,29 @@ public class RecipeBook : MonoBehaviour
         return _unlockedStatus[recipe];
     }
 
-    public void UpdateUnlockStatus(Recipe recipe, int idx)
+    public int UpdateUnlockStatus(Recipe recipe, int idx)
     {
         _unlockedStatus[recipe] = _unlockedStatus[recipe] ^ (1 << idx);
+        if (_unlockedStatus[recipe] == 7)
+        {
+            _audio.PlayOneShot(_newRecipeSound);
+            //if (!_opened)
+            //{
+            _notification.gameObject.SetActive(true);
+                _notification.Init(recipe);
+//            }
+                
+        }
+            
         Save();
+        return _unlockedStatus[recipe];
     }
 
     private void Save()
     {
         List<int> statuses = new(_recipes.Count);
-        foreach (Recipe recipe in _recipes) {
+        foreach (Recipe recipe in _recipes)
+        {
             statuses.Add(_unlockedStatus[recipe]);
         }
         G.SaveManager.SaveRecipeStatuses(statuses);
@@ -193,12 +211,19 @@ public class RecipeBook : MonoBehaviour
             {
                 if (recipe.Ingredients.Contains(ingredients[i]))
                 {
-                    check = false; 
+                    check = false;
                     break;
                 }
             }
             if (check)
+            {
+                if (GetUnlockStatus(recipe) != 7)
+                {
+                    UpdateUnlockStatus(recipe, 7);
+                }
                 return recipe.ResultIngredient;
+            }
+
         }
 
         return _failRecipe.ResultIngredient;

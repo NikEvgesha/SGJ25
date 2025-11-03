@@ -381,6 +381,7 @@ MonoBehaviour:
   _nameText: {fileID: 1346653388451717881}
   _descriptionText: {fileID: 6343734635138511651}
   _icon: {fileID: 2624208608571134036}
+  _revealDuration: 1
   RECIPE: {fileID: 0}
 --- !u!1 &5479178707133629239
 GameObject:
