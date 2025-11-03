@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 09f4607a5d4600847a947c5ed514a58d
+guid: c28678dfbec9f0642b46797806d55690
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,7 +10,7 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: eeb34f3ead148d04e8630fc3f79cbc1a, type: 3}
   dataVersion: 7
   fileType: 0
-  gameObjectName: Wing (2)
+  gameObjectName: Scales (2)
   meshMode: 0
   importMode: 1
   importScale: {x: 0.01, y: 0.01, z: 0.01}
@@ -38,12 +38,12 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {fileID: -156486658544998735, guid: 09f4607a5d4600847a947c5ed514a58d, type: 3}
+  - {fileID: -156486658544998735, guid: c28678dfbec9f0642b46797806d55690, type: 3}
   materialNames:
-  - Wing (2)_0
+  - Scales (2)_0
   remappedMaterials:
-  - name: Wing (2)_0
-    material: {fileID: 2100000, guid: 6db135570a2781549ab3aa2cdaa126da, type: 2}
+  - name: Scales (2)_0
+    material: {fileID: 2100000, guid: c0e6170c759f0974a8b715aed8bf1954, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a86df6956d59e2f48b6efb6a1811332d
+guid: abe3dc9c972e0a641ba1cebeef8f5ffc
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,10 +10,10 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: eeb34f3ead148d04e8630fc3f79cbc1a, type: 3}
   dataVersion: 7
   fileType: 0
-  gameObjectName: eye (2)
+  gameObjectName: Wing (3)
   meshMode: 0
   importMode: 1
-  importScale: {x: 0.002, y: 0.002, z: 0.002}
+  importScale: {x: 0.01, y: 0.01, z: 0.01}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -38,12 +38,12 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: abe3dc9c972e0a641ba1cebeef8f5ffc, type: 3}
   materialNames:
-  - eye (2)_0
+  - Wing (3)_0
   remappedMaterials:
-  - name: eye (2)_0
-    material: {fileID: 2100000, guid: adcdc113f680a6b4b94861a7419a501a, type: 2}
+  - name: Wing (3)_0
+    material: {fileID: 2100000, guid: c856d1e0ad8567a4986c06913dc6477b, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0
