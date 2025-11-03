@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: frog
   meshMode: 0
   importMode: 1
-  importScale: {x: 0.01, y: 0.01, z: 0.01}
+  importScale: {x: 0.005, y: 0.005, z: 0.005}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -38,7 +38,7 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {fileID: -156486658544998735, guid: 50941f6a7980caf48b7b503580bf6495, type: 3}
+  - {instanceID: 0}
   materialNames:
   - frog_0
   remappedMaterials:

@@ -13,6 +13,10 @@ PrefabInstance:
       value: Bee
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: bed08593f73656c48bd0518ddfd61ad3, type: 3}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.Name
       value: Bee
       objectReference: {fileID: 0}

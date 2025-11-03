@@ -13,6 +13,10 @@ PrefabInstance:
       value: Venom Ivy
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: da377e75acebc4147b101596f0c159a6, type: 3}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.Name
       value: Venom Ivy
       objectReference: {fileID: 0}

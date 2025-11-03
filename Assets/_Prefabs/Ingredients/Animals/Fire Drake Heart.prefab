@@ -75,6 +75,10 @@ PrefabInstance:
       value: Fire Drake Heart
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: cf468392f7536d44db510901f67ffab0, type: 3}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.Name
       value: Fire Drake Heart
       objectReference: {fileID: 0}

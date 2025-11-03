@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: heart
   meshMode: 0
   importMode: 1
-  importScale: {x: 0.01, y: 0.01, z: 0.01}
+  importScale: {x: 0.008, y: 0.008, z: 0.008}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -38,7 +38,7 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {fileID: -156486658544998735, guid: dc8a898f2a7782542917f3aab8cdd687, type: 3}
+  - {instanceID: 0}
   materialNames:
   - heart_0
   remappedMaterials:

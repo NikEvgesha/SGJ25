@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: chamomile
   meshMode: 0
   importMode: 1
-  importScale: {x: 0.01, y: 0.01, z: 0.01}
+  importScale: {x: 0.003, y: 0.003, z: 0.003}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -38,7 +38,7 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {fileID: -156486658544998735, guid: a7a11091e4e7e2247842bbf466c4c9aa, type: 3}
+  - {instanceID: 0}
   materialNames:
   - chamomile_0
   remappedMaterials:

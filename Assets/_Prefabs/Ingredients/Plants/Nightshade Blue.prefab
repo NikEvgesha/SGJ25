@@ -13,6 +13,10 @@ PrefabInstance:
       value: Nightshade Blue
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 3b68ba572f2fac448a24ab6694380e26, type: 3}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.Name
       value: Nightshade Blue
       objectReference: {fileID: 0}

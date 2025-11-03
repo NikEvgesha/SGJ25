@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
 
     private void Awake()
     {
-        _ingredient.GetComponent<Ingredient>();
+        _ingredient = GetComponent<Ingredient>();
     }
 
 

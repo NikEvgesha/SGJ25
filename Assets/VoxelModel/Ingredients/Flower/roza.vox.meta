@@ -13,7 +13,7 @@ ScriptedImporter:
   gameObjectName: roza
   meshMode: 0
   importMode: 1
-  importScale: {x: 0.01, y: 0.01, z: 0.01}
+  importScale: {x: 0.005, y: 0.005, z: 0.005}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
