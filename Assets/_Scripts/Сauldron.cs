@@ -16,8 +16,10 @@ public class Сauldron : MonoBehaviour
     {
         _outline = GetComponent<Outline>();
         _water.SetActive(false);
+        G.Game.GameStart.AddListener(StartPoint);
+    
     }
-    private void Start()
+    private void StartPoint()
     {
         _PlayerView(false);
     }

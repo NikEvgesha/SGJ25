@@ -12,7 +12,11 @@ public class PointStend : MonoBehaviour
     [Header("Test")]
     [SerializeField] private ItemTaked _currentItem; // что сейчас стоит на подставке
 
-    private void Start()
+    private void Awake()
+    {
+        G.Game.GameStart.AddListener(StartPoint);
+    }
+    private void StartPoint()
     {
         _PlayerView(false);
     }

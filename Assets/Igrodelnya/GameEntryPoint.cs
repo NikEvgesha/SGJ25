@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameEntryPoint : MonoBehaviour
 {
-    //[SerializeField] private PlayerController _player;
+    [SerializeField] private GameObject _player;
     //[SerializeField] private Inventory _inventory;
     [SerializeField] private GameObject _gameUI;
     //[SerializeField] private GameObject _lobbyUI;
@@ -15,6 +15,7 @@ public class GameEntryPoint : MonoBehaviour
     {
         //Instantiate(_lobbyUI);
         Instantiate(_gameUI);
+        Instantiate(_player);
 
         G.GameLoader.ShowLoadingImage(false);
         G.Game.OnGameStart();

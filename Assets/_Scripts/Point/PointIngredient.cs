@@ -15,8 +15,9 @@ public class PointIngredient : MonoBehaviour
     private void Awake()
     {
         _outline = GetComponent<Outline>();
+        G.Game.GameStart.AddListener(StartPoint);
     }
-    private void Start()
+    private void StartPoint()
     {
         _PlayerView(false);
     }

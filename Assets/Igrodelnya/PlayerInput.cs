@@ -153,6 +153,7 @@ public class PlayerInput : MonoBehaviour
         if (G.Input == null)
         {
             G.Input = this;
+            DontDestroyOnLoad(this);
         }
         else
         {

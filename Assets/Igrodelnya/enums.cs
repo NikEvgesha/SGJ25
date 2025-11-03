@@ -46,7 +46,8 @@ public enum CollectionCategory
 public enum GameScene
 {
     Evgesha,
-    Melomaner
+    Melomaner,
+    Game
 }
 
 public enum CurrencyType

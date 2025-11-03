@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         GameStart?.Invoke();
         G.IsPaused = false;
-        G.Control.CursorActive = true;
+        //G.Control.CursorActive = true;
         //G.Control.CursorActive = false;
     }
 

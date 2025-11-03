@@ -30,13 +30,20 @@ public class PlayerController : MonoBehaviour
 
         if (_lockCursor)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            _lockCursor = false;
+            G.Control.CursorActive = _lockCursor;
         }
     }
     private void Update()
     {
-        Look();
+        if (G.Input.Inventory)
+        {
+            _lockCursor = !_lockCursor;
+            G.Control.CursorActive = _lockCursor;
+        }
+        if (!_lockCursor)
+            Look();
+
         Move();
     }
 

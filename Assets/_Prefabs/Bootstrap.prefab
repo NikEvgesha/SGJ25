@@ -49,7 +49,8 @@ MonoBehaviour:
   _saveManager: {fileID: 2974233959673005924, guid: 62da086b09a419c4c8d137805a5464a2, type: 3}
   _localizationManager: {fileID: 567649986075921347, guid: 0b0639cbe4b0ef449938e491db8e2582, type: 3}
   _settings: {fileID: 6802559528610777283, guid: 43bbfa494e734234bb39a17543182b1b, type: 3}
+  _input: {fileID: 1239808347474142216, guid: bfba8e2c3a2062445ad3268d500ca9e7, type: 3}
   _gameManager: {fileID: 1901778762762644436, guid: 4569b97e175fd3847aef6179ad55a90c, type: 3}
   _controlManager: {fileID: 8300939525249572762, guid: b8c4064048baeca4a8aad16c73a82ad1, type: 3}
   _cuurencyManager: {fileID: 4036853948680030383, guid: b206e59a4fb4ed442935ef2338cef720, type: 3}
-  _gameScene: 0
+  _gameScene: 2

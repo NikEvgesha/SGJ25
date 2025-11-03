@@ -8,7 +8,7 @@ public class BootstrapEntryPoint : MonoBehaviour
     [SerializeField] private SaveManager _saveManager;
     [SerializeField] private LocalizationManager _localizationManager;
     [SerializeField] private Settings _settings;
-    //[SerializeField] private CustomPlayerInput _input;
+    [SerializeField] private PlayerInput _input;
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private ControlManager _controlManager;
     [SerializeField] private CurrencyManager _cuurencyManager;
@@ -30,7 +30,7 @@ public class BootstrapEntryPoint : MonoBehaviour
         Instantiate(_saveManager);
         Instantiate(_localizationManager);
         Instantiate(_settings);
-        //Instantiate(_input);
+        Instantiate(_input);
         Instantiate(_gameManager);
         Instantiate(_controlManager);
         Instantiate(_cuurencyManager);

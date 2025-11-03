@@ -8,7 +8,7 @@ public class ControlManager : MonoBehaviour
     private bool _moveActive = true;
     public bool UseTouchControl { get { return _useTouchControls; } private set { } }
 
-    private int _activeWindows = 0;
+    //private int _activeWindows = 0;
     public bool CursorActive
     {
         get
