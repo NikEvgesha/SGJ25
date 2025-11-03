@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd1475ade3869af4cb45e1562e462bd1
+guid: ef13a285f8129724a890df091d727c13
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,8 +10,8 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: eeb34f3ead148d04e8630fc3f79cbc1a, type: 3}
   dataVersion: 7
   fileType: 0
-  gameObjectName: potion3 (2)
-  meshMode: 1
+  gameObjectName: potion9
+  meshMode: 0
   importMode: 1
   importScale: {x: 0.01, y: 0.01, z: 0.01}
   importOffset: {x: 0, y: 0, z: 0}
@@ -35,15 +35,15 @@ ScriptedImporter:
   generateMipMaps: 0
   colliderType: 0
   chunkPivotT: {x: 0.5, y: 0.5, z: 0.5}
-  createContactChunkFaces: 1
+  createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {fileID: -156486658544998735, guid: fd1475ade3869af4cb45e1562e462bd1, type: 3}
+  - {fileID: -156486658544998735, guid: ef13a285f8129724a890df091d727c13, type: 3}
   materialNames:
-  - potion3 (2)_0
+  - Albedo_0
   remappedMaterials:
-  - name: potion3 (2)_0
-    material: {fileID: 2100000, guid: 17bd2187f0e0777468bb252936b7e02d, type: 2}
+  - name: Albedo_0
+    material: {fileID: 2100000, guid: c788a8b537991814aa798dde6ccffc72, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 407ad92042ed15545adf0ac13a843992
+guid: e40e8da37a954e843b37ce7ae4807b44
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,8 +10,8 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: eeb34f3ead148d04e8630fc3f79cbc1a, type: 3}
   dataVersion: 7
   fileType: 0
-  gameObjectName: potion2 (3)
-  meshMode: 1
+  gameObjectName: potion
+  meshMode: 0
   importMode: 1
   importScale: {x: 0.01, y: 0.01, z: 0.01}
   importOffset: {x: 0, y: 0, z: 0}
@@ -31,19 +31,19 @@ ScriptedImporter:
   generateVertexColorMax: {r: 1, g: 1, b: 1, a: 1}
   generateVertexColorMin: {r: 0.64, g: 0.64, b: 0.64, a: 1}
   meshFaceVertexOffset: 0
-  loadFromVoxelFile: 1
+  loadFromVoxelFile: 0
   generateMipMaps: 0
   colliderType: 0
   chunkPivotT: {x: 0.5, y: 0.5, z: 0.5}
-  createContactChunkFaces: 1
+  createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {fileID: -156486658544998735, guid: 407ad92042ed15545adf0ac13a843992, type: 3}
+  - {fileID: -156486658544998735, guid: e40e8da37a954e843b37ce7ae4807b44, type: 3}
   materialNames:
-  - potion2 (3)_0
+  - Elixir life_0
   remappedMaterials:
-  - name: potion2 (3)_0
-    material: {fileID: 2100000, guid: 8f9d6d434a70b234c95889a93b11a8f4, type: 2}
+  - name: Elixir life_0
+    material: {fileID: 2100000, guid: 9a6d0093df48dfc448dd7cd88c906a26, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0

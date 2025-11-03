@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e40e8da37a954e843b37ce7ae4807b44
+guid: 9357158d49fe53c4998ccfeb98a7fcfc
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,7 +10,7 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: eeb34f3ead148d04e8630fc3f79cbc1a, type: 3}
   dataVersion: 7
   fileType: 0
-  gameObjectName: potion
+  gameObjectName: potion5
   meshMode: 0
   importMode: 1
   importScale: {x: 0.01, y: 0.01, z: 0.01}
@@ -31,19 +31,19 @@ ScriptedImporter:
   generateVertexColorMax: {r: 1, g: 1, b: 1, a: 1}
   generateVertexColorMin: {r: 0.64, g: 0.64, b: 0.64, a: 1}
   meshFaceVertexOffset: 0
-  loadFromVoxelFile: 0
+  loadFromVoxelFile: 1
   generateMipMaps: 0
   colliderType: 0
   chunkPivotT: {x: 0.5, y: 0.5, z: 0.5}
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {fileID: -156486658544998735, guid: e40e8da37a954e843b37ce7ae4807b44, type: 3}
+  - {instanceID: 0}
   materialNames:
-  - potion_0
+  - Chaos Potion_0
   remappedMaterials:
-  - name: potion_0
-    material: {fileID: 2100000, guid: cdd9f3d6a00c3674f8730d9e2545f0af, type: 2}
+  - name: Chaos Potion_0
+    material: {fileID: 2100000, guid: 8e8b45bd193c36f4c9ff843c1ef7a0e6, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0
