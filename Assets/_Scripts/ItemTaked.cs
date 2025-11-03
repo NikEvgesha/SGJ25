@@ -38,7 +38,7 @@ public class ItemTaked : MonoBehaviour
 
     public void Take()
     {
-        this.gameObject.layer = 0;
+        //this.gameObject.layer = 0;
 
         if (_moveRoutine != null)
         {
@@ -55,7 +55,7 @@ public class ItemTaked : MonoBehaviour
 
     public void PutDown(Transform point,bool del = false)
     {
-        this.gameObject.layer = 6;
+        //this.gameObject.layer = 6;
 
         if (_moveRoutine != null)
         {
@@ -68,7 +68,15 @@ public class ItemTaked : MonoBehaviour
 
         StartMoveToParent(point, del);
     }
-
+    public void MoveToParent(Transform point, bool del = false)
+    {
+        if (_moveRoutine != null)
+        {
+            StopCoroutine(_moveRoutine);
+            _moveRoutine = null;
+        }
+        StartMoveToParent(point, del);
+    }
 
     private void StartMoveToParent(Transform parent,bool del = false)
     {
