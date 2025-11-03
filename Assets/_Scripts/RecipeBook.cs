@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class RecipeBook : MonoBehaviour
 {
@@ -21,6 +22,13 @@ public class RecipeBook : MonoBehaviour
     private bool _opened;
     private int _currentRecipeLastIndex;
     private Dictionary<Recipe, int> _unlockedStatus; // 0 .. 7
+
+    int currentLeft;
+    int currentRight;
+    int prevRight;
+    int prevLeft;
+    int nextRight;
+    int nextLeft;
 
     private void Awake()
     {
@@ -63,12 +71,14 @@ public class RecipeBook : MonoBehaviour
         _animator.SetTrigger("Open");
         CheckNavigation();
         _audio.PlayOneShot(_pageSound);
+        G.Control.CursorActive = true;
     }
 
     public void Close()
     {
         _animator.SetTrigger("Close");
         //_navigationButtons.SetActive(false);
+        G.Control.CursorActive = false;
     }
 
     public void ToggleOpen()
@@ -128,20 +138,33 @@ public class RecipeBook : MonoBehaviour
 
     public void PreviousPage()
     {
-        _dynamicPageRight.SetRecipe(_recipes[_currentRecipeLastIndex - 1]);
-        if (_currentRecipeLastIndex - 1 >= 0)
-            _dynamicPageLeft.SetRecipe(_recipes[_currentRecipeLastIndex - 2]);
+
+        if (_currentRecipeLastIndex % 2 == 0) {
+            currentLeft = _currentRecipeLastIndex - 1;
+            prevRight = _currentRecipeLastIndex - 2;
+            prevLeft = _currentRecipeLastIndex - 3;
+            _currentRecipeLastIndex -= 2;
+        } else
+        {
+            currentLeft = _currentRecipeLastIndex;
+            prevRight = _currentRecipeLastIndex - 1;
+            prevLeft = _currentRecipeLastIndex - 2;
+            _currentRecipeLastIndex--;
+        }
+        _dynamicPageRight.SetRecipe(_recipes[currentLeft]);
+
+        if (prevRight >= 0)
+            _dynamicPageLeft.SetRecipe(_recipes[prevRight]);
 
 
         _dynamicPageLeft.transform.parent.gameObject.SetActive(true);
         
-        if (_currentRecipeLastIndex - 3 >= 0)
-            _leftPage.SetRecipe(_recipes[_currentRecipeLastIndex - 3]);
+        if (prevLeft >= 0)
+            _leftPage.SetRecipe(_recipes[prevLeft]);
         else
         {
             _leftPage.SetRecipe();
         }
-        _currentRecipeLastIndex -= 2;
         _animator.SetTrigger("Previous");
         _audio.PlayOneShot(_pageSound);
         CheckNavigation();
@@ -163,7 +186,7 @@ public class RecipeBook : MonoBehaviour
 
     private void CheckNavigation()
     {
-        _nextButton.gameObject.SetActive(_currentRecipeLastIndex + 2 < _recipes.Count);
+        _nextButton.gameObject.SetActive(_currentRecipeLastIndex + 1 < _recipes.Count);
         _prevButton.gameObject.SetActive(_currentRecipeLastIndex - 2 >= 0);
 
     }
@@ -212,8 +235,18 @@ public class RecipeBook : MonoBehaviour
             bool check = true;
             for (int i = 0; i < ingredients.Count; i++)
             {
-                if (!recipe.Ingredients.Contains(ingredients[i]))
+                bool haveIngredient = false;
+                for (int j = 0; j < recipe.Ingredients.Count; j++)
                 {
+                    if (ingredients[i].Data.Name == recipe.Ingredients[j].Data.Name)
+                    {
+                        haveIngredient = true;
+                        break;
+                    }
+                }
+
+                if (!haveIngredient)
+                    {
                     check = false;
                     break;
                 }

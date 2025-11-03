@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             _lockCursor = !_lockCursor;
             G.Control.CursorActive = _lockCursor;
         }
-        if (!_lockCursor)
+        if (!G.Control.CursorActive)
             Look();
 
         Move();

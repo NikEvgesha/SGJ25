@@ -8,7 +8,7 @@ public class ControlManager : MonoBehaviour
     private bool _moveActive = true;
     public bool UseTouchControl { get { return _useTouchControls; } private set { } }
 
-    //private int _activeWindows = 0;
+    private int _activeWindows = 0;
     public bool CursorActive
     {
         get
@@ -24,15 +24,15 @@ public class ControlManager : MonoBehaviour
             //if (_useTouchControls)
             //    return;
 
-            //if (value)
-            //{
-            //    _activeWindows++;
-            //}
-            //else
-            //{
-            //    _activeWindows = _activeWindows > 0 ? _activeWindows - 1 : 0 ;
-            //    if (_activeWindows > 0) return;
-            //}
+            if (value)
+            {
+                _activeWindows++;
+            }
+            else
+            {
+                _activeWindows = _activeWindows > 0 ? _activeWindows - 1 : 0;
+                if (_activeWindows > 0) return;
+            }
 
             //if (_provider && _provider.IsInitialized())
             //{
@@ -42,7 +42,7 @@ public class ControlManager : MonoBehaviour
             //} 
             //else
             //{
-                _cursorActive = value;
+            _cursorActive = value;
                 Cursor.visible = value;
                 Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
             //}
