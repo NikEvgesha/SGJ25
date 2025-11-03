@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b14851c067c4ddc419f674e2affe4895
+guid: 921a17e1d272eb34798ecde551493402
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,7 +10,7 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: eeb34f3ead148d04e8630fc3f79cbc1a, type: 3}
   dataVersion: 7
   fileType: 0
-  gameObjectName: potion10
+  gameObjectName: potion12
   meshMode: 0
   importMode: 1
   importScale: {x: 0.01, y: 0.01, z: 0.01}
@@ -38,12 +38,12 @@ ScriptedImporter:
   createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {fileID: 6226931612348245228, guid: fd51a414662b24846a614911482dd87e, type: 3}
+  - {fileID: -156486658544998735, guid: 921a17e1d272eb34798ecde551493402, type: 3}
   materialNames:
-  - Concentration Potion_0
+  - Potion Dexterity_0
   remappedMaterials:
-  - name: Concentration Potion_0
-    material: {fileID: 2100000, guid: ade7daf4860b4b94492bc2e0ab51a380, type: 2}
+  - name: Potion Dexterity_0
+    material: {fileID: 2100000, guid: 4cf40bfeb9cdcaf458a72aea6dba3670, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0
