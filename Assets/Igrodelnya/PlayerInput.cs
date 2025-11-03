@@ -76,11 +76,19 @@ public class PlayerInput : MonoBehaviour
         }
         private set { }
     }
-    public bool Reload
+    public bool Book
     {
         get
         {
-            return _reload;
+            return _book;
+        }
+        private set { }
+    }
+    public bool Menu
+    {
+        get
+        {
+            return _menu;
         }
         private set { }
     }
@@ -118,7 +126,7 @@ public class PlayerInput : MonoBehaviour
     private bool _attach;
     private bool _inventory;
     private bool _useItem;
-    private bool _reload;
+    private bool _book;
     private bool _attack;
     private bool _healing;
     private bool _rotationX;
@@ -127,6 +135,7 @@ public class PlayerInput : MonoBehaviour
     private bool _roulette;
     private bool _playtime;
     private bool _levelUp;
+    private bool _menu;
 
 
     public Action AJump;
@@ -139,12 +148,13 @@ public class PlayerInput : MonoBehaviour
     public Action AAttach;
     public Action AInventory;
     public Action AUseItem;
-    public Action AReload;
+    public Action ABook;
     public Action AAttack;
     public Action AHealing;
     public Action APause;
     public Action ARoulette;
     public Action APlaytime;
+    public Action AMenu;
     public Action<MonoBehaviour> AOpenWindow;
     public Action ALevelUp;
 
@@ -202,7 +212,8 @@ public class PlayerInput : MonoBehaviour
             _sprint = Input.GetKey(KeyCode.LeftShift);
             _attach = Input.GetKeyDown(KeyCode.Z);
             _inventory = Input.GetKeyDown(KeyCode.Tab);
-            _reload = Input.GetKeyDown(KeyCode.R);
+            _book = Input.GetKeyDown(KeyCode.R);
+            _menu = Input.GetKeyDown(KeyCode.Escape);
             _rotationY = _interactionHold;
             _rotationX = Input.GetKey(KeyCode.Q);
             _pause = Input.GetKeyDown(KeyCode.P);
@@ -227,13 +238,14 @@ public class PlayerInput : MonoBehaviour
         if (_attach) AAttach?.Invoke();
         if (_inventory) AInventory?.Invoke();
         if (_useItem) AUseItem?.Invoke();
-        if (_reload) AReload?.Invoke();
+        if (_book) ABook?.Invoke();
         if (_attack) AAttack?.Invoke();
         if (_healing) AHealing?.Invoke();
         if (_pause) APause?.Invoke();
         if (_roulette) ARoulette?.Invoke();
         if (_playtime) APlaytime?.Invoke();
         if (_levelUp) ALevelUp?.Invoke();
+        if (_menu) AMenu?.Invoke();
 
         // _useItem = _pickUp; //Переработать смысл кнопки
 

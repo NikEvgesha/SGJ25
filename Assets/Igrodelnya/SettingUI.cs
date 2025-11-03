@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class SettingUI : ManagedBehaviour
@@ -8,37 +7,37 @@ public class SettingUI : ManagedBehaviour
     [SerializeField] private Slider _soundVolume;
     [SerializeField] private Slider _sensivity;
     [SerializeField] private GameObject _panel;
-    [SerializeField] private InputAction _menuAction;
+    //[SerializeField] private InputAction _menuAction;
 
     private bool _isOpen;
 
-    private void OnEnable()
-    {
-        if (_menuAction != null) _menuAction.Enable();
-    }
+    //private void OnEnable()
+    //{
+    //    if (_menuAction != null) _menuAction.Enable();
+    //}
 
-    private void OnDisable()
-    {
-        G.SoundManager.Ready.RemoveListener(SetValues);
-        if (_menuAction != null) _menuAction.Disable();
-        //PlayerInput.Instance.APause -= ToggleOpen;
-    }
-
-
-    private void Awake()
-    {
-        EnsureDefaultBindingsIfEmpty();
-    }
+    //private void OnDisable()
+    //{
+    //    G.SoundManager.Ready.RemoveListener(SetValues);
+    //    if (_menuAction != null) _menuAction.Disable();
+    //    //PlayerInput.Instance.APause -= ToggleOpen;
+    //}
 
 
-    private void EnsureDefaultBindingsIfEmpty()
-    {
-        if (_menuAction == null || _menuAction.bindings.Count == 0)
-        {
-            _menuAction = new InputAction("Inventory", InputActionType.Button);
-            _menuAction.AddBinding("<Keyboard>/escape");
-        }
-    }
+    //private void Awake()
+    //{
+    //    EnsureDefaultBindingsIfEmpty();
+    //}
+
+
+    //private void EnsureDefaultBindingsIfEmpty()
+    //{
+    //    if (_menuAction == null || _menuAction.bindings.Count == 0)
+    //    {
+    //        _menuAction = new InputAction("Inventory", InputActionType.Button);
+    //        _menuAction.AddBinding("<Keyboard>/escape");
+    //    }
+    //}
 
 
     private void Start()
@@ -64,13 +63,13 @@ public class SettingUI : ManagedBehaviour
     }
 
 
-    protected override void PausableUpdate()
-    {
-        if (_menuAction.triggered)
-        {
-            ToggleOpen();
-        }
-    }
+    //protected override void PausableUpdate()
+    //{
+    //    if (_menuAction.triggered)
+    //    {
+    //        ToggleOpen();
+    //    }
+    //}
 
     public void ToggleOpen()
     {

@@ -62,6 +62,7 @@ public class RecipeBook : MonoBehaviour
         //_navigationButtons.SetActive(true);
         _animator.SetTrigger("Open");
         CheckNavigation();
+        _audio.PlayOneShot(_pageSound);
     }
 
     public void Close()
