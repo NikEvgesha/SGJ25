@@ -65,6 +65,9 @@ public class RecipePage : MonoBehaviour
         if (_status != 7)
         {
             _icon.color = Color.black;
+        } else
+        {
+            _icon.color = Color.white;
         }
 
     }

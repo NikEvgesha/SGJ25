@@ -10,6 +10,7 @@ public struct IngredientData
     public Sprite Icon;
     public string hint;
     public ItemType Type;
+    public int SellPrice;
 
 
     //public static bool operator ==(IngredientData c1, IngredientData c2)

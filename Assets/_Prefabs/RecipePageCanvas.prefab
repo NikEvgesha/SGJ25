@@ -182,7 +182,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.15
+  m_fontSize: 42.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -687,9 +687,13 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4048830114660606274, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4420437680057640214, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_fontSize
-      value: 58.25
+      value: 51.45
       objectReference: {fileID: 0}
     - target: {fileID: 7486974270580994760, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_Pivot.x
@@ -821,9 +825,13 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4048830114660606274, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4420437680057640214, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_fontSize
-      value: 58.25
+      value: 51.45
       objectReference: {fileID: 0}
     - target: {fileID: 7486974270580994760, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_Pivot.x
@@ -955,9 +963,13 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4048830114660606274, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4420437680057640214, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_fontSize
-      value: 58.25
+      value: 51.45
       objectReference: {fileID: 0}
     - target: {fileID: 7486974270580994760, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_Pivot.x

@@ -10,14 +10,12 @@ public class Recipe : ScriptableObject
     [SerializeField] private List<Ingredient> _ingredients;
     [SerializeField] private int _insightReward;
     [SerializeField] private int _unlockInsightPrice;
-    [SerializeField] private int _sellPrice;
     [SerializeField] private Sprite _icon;
     [SerializeField] private Ingredient _potionIngredient;
 
     public string Name => _name;
     public string Description => _description;
     public List<Ingredient> Ingredients => _ingredients;
-    public int SellPrice => _sellPrice;
     public Sprite Icon => _icon;
     public int UnlockIngredientPrice => _unlockInsightPrice;
     public Ingredient ResultIngredient => _potionIngredient;

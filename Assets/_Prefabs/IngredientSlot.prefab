@@ -493,6 +493,9 @@ MonoBehaviour:
   _hint: {fileID: 7255241254642112875}
   _name: {fileID: 907138384617127479}
   _insightPrice: {fileID: 4420437680057640214}
+  IngredientUnlocked:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3626773859753583271
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +739,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 51.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

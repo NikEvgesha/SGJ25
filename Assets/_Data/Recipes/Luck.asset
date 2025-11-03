@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad4a5769a41728c42bfcbae9715359ab, type: 3}
-  m_Name: 2
+  m_Name: Luck
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
-  _name: Potion #2
-  _description: description description descriptiondescriptiondescription
+  _name: Infusion of luck
+  _description: A sandwich will never fall butter side down again.
   _ingredients:
-  - {fileID: 8370306325074081913, guid: 60763bc9820e9604f933cb4ba20ca3d0, type: 3}
-  - {fileID: 783085912046224136, guid: e8e7aac2653c93443b1aeb07f2d300c3, type: 3}
-  - {fileID: 1550827692948415221, guid: ec41bf6b0e311454cae859f512f468f0, type: 3}
-  _insightReward: 3
+  - {fileID: 8186306882738459619, guid: bbdf28f671a858c4f9a0d075baabef91, type: 3}
+  - {fileID: 8186306882738459619, guid: 7019788c5a60a4349a583bf634f73ab6, type: 3}
+  - {fileID: 7953409159412256751, guid: f12f86e315296794a89cac9af55b8d19, type: 3}
+  _insightReward: 2
   _unlockInsightPrice: 2
-  _sellPrice: 15
+  _sellPrice: 10
   _icon: {fileID: 21300000, guid: ccc133a283f1457458e3a967a5535268, type: 3}
+  _potionIngredient: {fileID: 0}
