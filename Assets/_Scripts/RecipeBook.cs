@@ -35,7 +35,7 @@ public class RecipeBook : MonoBehaviour
         G.Game.SetRecipeBook(this);
         List<int> statuses = G.SaveManager.LoadRecipeStatuses();
 
-        if (statuses.Count != 0)
+        if (statuses.Count == _recipes.Count)
         {
             for (int i = 0; i < _recipes.Count; i++)
             {

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4a5769a41728c42bfcbae9715359ab, type: 3}
   m_Name: Sch
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
-  Name: "\u0429"
-  Description: It's a mess.
+  _name: "\u0429"
+  _description: "\u0429\u0442\u043E \u044D\u0442\u043E \u0432\u043E\u043E\u0431\u0449\u0435?"
   _ingredients: []
   _insightReward: 1
-  _sellPrice: 1
+  _unlockInsightPrice: 0
+  _icon: {fileID: 0}
+  _potionIngredient: {fileID: 0}

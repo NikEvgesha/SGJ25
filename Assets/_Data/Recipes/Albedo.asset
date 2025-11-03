@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4a5769a41728c42bfcbae9715359ab, type: 3}
+  m_Name: Albedo
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  _name: "\u0410\u043B\u044C\u0431\u0435\u0434\u043E"
+  _description: "\u0411\u0435\u043B\u044B\u0439 \u0441\u0432\u0435\u0442 \u0432 \u0431\u0443\u0442\u044B\u043B\u043A\u0435
+    \u2014 \u0441\u043C\u044B\u0432\u0430\u0435\u0442 \u0433\u0440\u044F\u0437\u044C
+    \u0441 \u0434\u0443\u0448\u0438 \u0438 \u0441 \u043A\u043E\u0432\u0440\u0430
+    \u043E\u0434\u043D\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E"
+  _ingredients:
+  - {fileID: 7953409159412256751, guid: 6bd353fbc21bdcb48a1c27a7eb952133, type: 3}
+  - {fileID: 8186306882738459619, guid: a4083338dd47550458d98f789e884a6d, type: 3}
+  - {fileID: 8370306325074081913, guid: 4db2551baf990654d8cbd64c6d98e037, type: 3}
+  _insightReward: 10
+  _unlockInsightPrice: 20
+  _icon: {fileID: 21300000, guid: ccc133a283f1457458e3a967a5535268, type: 3}
+  _potionIngredient: {fileID: 8370306325074081913, guid: 91d139bab9f3d3b4099b64ef08a65694, type: 3}
