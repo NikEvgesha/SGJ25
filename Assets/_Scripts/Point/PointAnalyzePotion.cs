@@ -7,7 +7,11 @@ public class PointAnalyzePotion : MonoBehaviour
     [SerializeField] private Transform _pointSocket;            // куда ставить предмет
     [SerializeField] private InteractionPanel _interactionPanel;
 
-    private void Start()
+    private void Awake()
+    {
+        G.Game.GameStart.AddListener(StartPoint);
+    }
+    private void StartPoint()
     {
         _PlayerView(false);
     }

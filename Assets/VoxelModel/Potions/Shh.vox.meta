@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 942d9565acfebdf4aa571423332198da
+guid: 6a4be4a9d983fb74794b66f19388d98a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,10 +10,10 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: eeb34f3ead148d04e8630fc3f79cbc1a, type: 3}
   dataVersion: 7
   fileType: 0
-  gameObjectName: kotel (2)
-  meshMode: 1
+  gameObjectName: potion13
+  meshMode: 0
   importMode: 1
-  importScale: {x: 0.02, y: 0.02, z: 0.02}
+  importScale: {x: 0.01, y: 0.01, z: 0.01}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -35,15 +35,15 @@ ScriptedImporter:
   generateMipMaps: 0
   colliderType: 0
   chunkPivotT: {x: 0.5, y: 0.5, z: 0.5}
-  createContactChunkFaces: 1
+  createContactChunkFaces: 0
   materialMode: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: -156486658544998735, guid: 6a4be4a9d983fb74794b66f19388d98a, type: 3}
   materialNames:
-  - kotel (2)_0
+  - Shh_0
   remappedMaterials:
-  - name: kotel (2)_0
-    material: {fileID: 2100000, guid: 7d55b2f4f99f9f744b6036b3facb374a, type: 2}
+  - name: Shh_0
+    material: {fileID: 2100000, guid: 06f8075401d0540419207b971a660c5d, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0

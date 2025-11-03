@@ -72,7 +72,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4308487417137039870, guid: 6e37db669b53ad04bb839a286f2968e2, type: 3}
       propertyPath: m_Name
-      value: Basilisk Scales Variant
+      value: BasiliskScales_Point
       objectReference: {fileID: 0}
     - target: {fileID: 5219303874432260805, guid: 6e37db669b53ad04bb839a286f2968e2, type: 3}
       propertyPath: m_SizeDelta.x

@@ -86,6 +86,14 @@ PrefabInstance:
       propertyPath: _data.hint
       value: It's Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.BuyPrice
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.SellPrice
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8063960226177427611, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

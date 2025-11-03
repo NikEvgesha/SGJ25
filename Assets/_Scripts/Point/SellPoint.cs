@@ -24,6 +24,7 @@ public class SellPoint : MonoBehaviour
 
         if (!G.Player.Hand.IsEmpty)
         {
+            _interactionPanel.SetInfo("Продать", G.Player.Hand.CurrentItem.Item.Data.SellPrice.ToString());
             _interactionPanel.gameObject.SetActive(isView);
         }
         else
@@ -43,8 +44,10 @@ public class SellPoint : MonoBehaviour
 
     private void SellItem()
     {
+        G.Currency.AddCurrency(CurrencyType.Coin, G.Player.Hand.CurrentItem.Item.Data.SellPrice);
         //Взять цену из потиона
         G.Player.Hand.CurrentItem.PutDown(_pointSocket,true);
+        _interactionPanel.gameObject.SetActive(false);
     }
 
 }

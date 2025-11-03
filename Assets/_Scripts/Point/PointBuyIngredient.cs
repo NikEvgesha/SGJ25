@@ -36,7 +36,11 @@ public class PointBuyIngredient : MonoBehaviour
     public void _PlayerView(bool isView)
     {
         if (_ingredientItem)
+        {
             _ingredientItem.UseOutline(isView);
+            _interactionPanel.SetInfo("Купить", _ingredientItem.Item.Data.BuyPrice.ToString());
+        }
+
         _interactionPanel.gameObject.SetActive(isView);
     }
     public void _Interact()
@@ -44,11 +48,12 @@ public class PointBuyIngredient : MonoBehaviour
         if (TryBuy())
         {
             AddNewIngredient();
+            _PlayerView(true);
         }
     }
     private bool TryBuy()
     {
-        return true;
+        return G.Currency.RemoveCurrency(CurrencyType.Coin, _ingredientItem.Item.Data.BuyPrice);
     }
     private void AddNewIngredient()
     {

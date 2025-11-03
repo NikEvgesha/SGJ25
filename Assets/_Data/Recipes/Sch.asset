@@ -18,4 +18,4 @@ MonoBehaviour:
   _insightReward: 1
   _unlockInsightPrice: 0
   _icon: {fileID: 0}
-  _potionIngredient: {fileID: 0}
+  _potionIngredient: {fileID: 8370306325074081913, guid: 8673d3ba68574ad439322a5d5ef59613, type: 3}

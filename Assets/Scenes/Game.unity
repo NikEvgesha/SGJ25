@@ -6210,14 +6210,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1698189567}
     m_Modifications:
     - target: {fileID: 1377872467381442953, guid: 9c99926222ee51c48baa90b6aaac41ec, type: 3}
-      propertyPath: _startOpenIndex
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377872467381442953, guid: 9c99926222ee51c48baa90b6aaac41ec, type: 3}
-      propertyPath: _ingredients.Array.size
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377872467381442953, guid: 9c99926222ee51c48baa90b6aaac41ec, type: 3}
       propertyPath: '_ingredients.Array.data[0]'
       value: 
       objectReference: {fileID: 9133065972212961869}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 942d9565acfebdf4aa571423332198da
+guid: 585ffa6369c9f1d479dc27bb6d9a5687
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,10 +10,10 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: eeb34f3ead148d04e8630fc3f79cbc1a, type: 3}
   dataVersion: 7
   fileType: 0
-  gameObjectName: kotel (2)
+  gameObjectName: stone
   meshMode: 1
   importMode: 1
-  importScale: {x: 0.02, y: 0.02, z: 0.02}
+  importScale: {x: 0.005, y: 0.005, z: 0.005}
   importOffset: {x: 0, y: 0, z: 0}
   combineFaces: 1
   ignoreCavity: 1
@@ -36,14 +36,22 @@ ScriptedImporter:
   colliderType: 0
   chunkPivotT: {x: 0.5, y: 0.5, z: 0.5}
   createContactChunkFaces: 1
-  materialMode: 0
+  materialMode: 1
   materials:
-  - {instanceID: 0}
+  - {fileID: -7243801432929835188, guid: 585ffa6369c9f1d479dc27bb6d9a5687, type: 3}
+  - {fileID: 7312158941740743834, guid: 585ffa6369c9f1d479dc27bb6d9a5687, type: 3}
+  - {fileID: -3942264933687615468, guid: 585ffa6369c9f1d479dc27bb6d9a5687, type: 3}
   materialNames:
-  - kotel (2)_0
+  - stone_0_1
+  - stone_1_0
+  - stone_1_2
   remappedMaterials:
-  - name: kotel (2)_0
-    material: {fileID: 2100000, guid: 7d55b2f4f99f9f744b6036b3facb374a, type: 2}
+  - name: stone_0_1
+    material: {fileID: 2100000, guid: 41fc941de8ce26b43bae2a8f859317ab, type: 2}
+  - name: stone_1_0
+    material: {fileID: 2100000, guid: 17dbd63255154e740ae9cb6cedbd28a3, type: 2}
+  - name: stone_1_2
+    material: {fileID: 2100000, guid: 5218336f1960c434cb0cf0e082a60a43, type: 2}
   export: 0
   legacyVoxImport: 0
   legacyAssetNaming: 0
