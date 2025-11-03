@@ -92,35 +92,37 @@ public class RecipeBook : MonoBehaviour
         if (_currentRecipeLastIndex + 1 < _recipes.Count)
             _dynamicPageRight.SetRecipe(_recipes[_currentRecipeLastIndex + 1]);
 
-
         _dynamicPageLeft.transform.parent.gameObject.SetActive(true);
+
 
         if (_currentRecipeLastIndex + 2 < _recipes.Count)
         {
             _rightPage.SetRecipe(_recipes[_currentRecipeLastIndex + 2]);
-            _currentRecipeLastIndex++;
+            _currentRecipeLastIndex += 2;
         }
         else
         {
             _rightPage.SetRecipe();
+            if (_currentRecipeLastIndex + 1 < _recipes.Count)
+                _currentRecipeLastIndex++;
         }
         _animator.SetTrigger("Next");
         _audio.PlayOneShot(_pageSound);
+        CheckNavigation();
     }
 
     public void NextComplete()
     {
-        if (_currentRecipeLastIndex < _recipes.Count)
+        if (_currentRecipeLastIndex % 2 != 0)
         {
             _leftPage.SetRecipe(_recipes[_currentRecipeLastIndex]);
-            _currentRecipeLastIndex++;
         }
         else
         {
-            _leftPage.SetRecipe();
+            _leftPage.SetRecipe(_recipes[_currentRecipeLastIndex-1]);
         }
         _dynamicPageLeft.transform.parent.gameObject.SetActive(false);
-        CheckNavigation();
+        //CheckNavigation();
     }
 
 
@@ -139,29 +141,29 @@ public class RecipeBook : MonoBehaviour
         {
             _leftPage.SetRecipe();
         }
+        _currentRecipeLastIndex -= 2;
         _animator.SetTrigger("Previous");
         _audio.PlayOneShot(_pageSound);
+        CheckNavigation();
     }
 
     public void PreviousComplete()
     {
-        if (_currentRecipeLastIndex - 2 >= 0)
+        if (_currentRecipeLastIndex >= 0)
         {
-            _rightPage.SetRecipe(_recipes[_currentRecipeLastIndex - 2]);
-            _currentRecipeLastIndex -= 2;
+            _rightPage.SetRecipe(_recipes[_currentRecipeLastIndex]);
         }
         else
         {
             _rightPage.SetRecipe();
         }
         _dynamicPageLeft.transform.parent.gameObject.SetActive(false);
-        CheckNavigation();
     }
 
 
     private void CheckNavigation()
     {
-        _nextButton.gameObject.SetActive(_currentRecipeLastIndex + 1 < _recipes.Count);
+        _nextButton.gameObject.SetActive(_currentRecipeLastIndex + 2 < _recipes.Count);
         _prevButton.gameObject.SetActive(_currentRecipeLastIndex - 2 >= 0);
 
     }
@@ -181,11 +183,11 @@ public class RecipeBook : MonoBehaviour
             //if (!_opened)
             //{
             _notification.gameObject.SetActive(true);
-                _notification.Init(recipe);
-//            }
-                
+            _notification.Init(recipe);
+            //            }
+
         }
-            
+
         Save();
         return _unlockedStatus[recipe];
     }
