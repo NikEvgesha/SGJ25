@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameUI : MonoBehaviour
 {
+    [SerializeField] private GameObject _gameEndPanel;
     private NewRecipeNotification _notification;
     private SettingUI settings;
 
@@ -16,7 +17,11 @@ public class GameUI : MonoBehaviour
     {
         G.Input.AMenu += OpenSettings;
         G.Input.ABook += OpenRecipeBook;
-        G.Game.BookReady.AddListener(() => { G.Game.RecipeBook.NewRecipe.AddListener(ShowRecipeNotification);});
+        G.Game.BookReady.AddListener(() => { 
+            G.Game.RecipeBook.NewRecipe.AddListener(ShowRecipeNotification);
+            G.Game.RecipeBook.StoneCreated.AddListener(OnStoneCreated);
+            });
+        
     }
 
     
@@ -39,6 +44,24 @@ public class GameUI : MonoBehaviour
     {
         _notification.gameObject.SetActive(true);
         _notification.Init(recipe);
+    }
+
+    private void OnStoneCreated()
+    {
+        _gameEndPanel.gameObject.SetActive(true);
+        G.Control.CursorActive = true;
+    }
+
+    public void OnStoneReject()
+    {
+        _gameEndPanel.gameObject.SetActive(false);
+        G.Control.CursorActive = false;
+    }
+
+    public void OnStoneAccepted()
+    {
+        _gameEndPanel.gameObject.SetActive(false);
+        G.Game.OnStoneAccepted();
     }
 
 }

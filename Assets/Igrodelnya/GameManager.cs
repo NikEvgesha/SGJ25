@@ -4,13 +4,18 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     private RecipeBook _recipeBook;
+    private Player _player;
+    private Cauldron _cauldron;
 
     public RecipeBook RecipeBook => _recipeBook;
+    public Player Player => _player;
+    public Cauldron Cauldron => _cauldron;
 
     [HideInInspector]
     public UnityEvent<bool> GameEnd;
     public UnityEvent GameStart;
     public UnityEvent BookReady;
+    public UnityEvent CauldronReady;
 
 
 
@@ -49,14 +54,18 @@ public class GameManager : MonoBehaviour
     public void SetRecipeBook(RecipeBook book)
     {
         _recipeBook = book;
-        _recipeBook.StoneCreated.AddListener(OnStoneCreated);
         BookReady?.Invoke();
     }
 
-    private void OnStoneCreated()
+    public void SetCauldron(Cauldron cauldron)
     {
-        Debug.Log("Stone created!");
+        _cauldron = cauldron;
+        CauldronReady?.Invoke();
     }
 
+    public void OnStoneAccepted()
+    {
+        Debug.Log("Stone accepted!");
+    }
 
 }

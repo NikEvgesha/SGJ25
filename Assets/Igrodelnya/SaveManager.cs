@@ -78,7 +78,15 @@ public class SaveManager : MonoBehaviour
         return PlayerPrefs.GetFloat("SoundVolume", 0.5f);
     }
 
+    public int LoadIngredients()
+    {
+        return PlayerPrefs.GetInt("Ingredients", 0);
+    }
 
+    public void SaveIngredients(int value)
+    {
+       PlayerPrefs.SetInt("Ingredients", value);
+    }
 
     public void Reset()
     {

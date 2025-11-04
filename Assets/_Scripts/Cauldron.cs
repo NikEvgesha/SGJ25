@@ -1,26 +1,34 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+using UnityEngine.Events;
 
-public class Сauldron : MonoBehaviour
+public class Cauldron : MonoBehaviour
 {
     [Header("Socket / Target point")]
     [SerializeField] private Transform _pointSocket;            
     [SerializeField] private InteractionPanel _interactionPanel;
     [SerializeField] private GameObject _water;
+    private AudioSource _audio;
 
     private List<Ingredient> _ingredients = new();
 
     private List<ItemTaked> _listItemsInСauldron = new();
     private Outline _outline;
 
+    public UnityEvent<List<Ingredient>> IngredientsUpdated;
+
     private void Awake()
     {
         _outline = GetComponent<Outline>();
         _water.SetActive(false);
         G.Game.GameStart.AddListener(StartPoint);
-    
+        _audio = GetComponent<AudioSource>();
     }
+    private void Start()
+    {
+        G.Game.SetCauldron(this);
+    }
+
     private void StartPoint()
     {
         _PlayerView(false);
@@ -49,6 +57,8 @@ public class Сauldron : MonoBehaviour
     {
         _ingredients.Add(item.Item.Ingredient);
         _water.SetActive(true);
+        IngredientsUpdated?.Invoke(_ingredients);
+        _audio.Play();
         if (_ingredients.Count >= 3)
         {
             _water.SetActive(false);

@@ -264,29 +264,18 @@ public class RecipeBook : MonoBehaviour
     {
         if (ingredients.Count != 3) return _failRecipe.ResultIngredient;
 
-        //bool isStone = true;
-        //foreach (Ingredient i in ingredients)
-        //{
-        //    if (!_stoneRecipe.Ingredients.Contains(i))
-        //    {
-        //        isStone = false;
-        //        break;
-        //    }
-        //}
-
-        //if (isStone)
-        //{
-        //    StoneCreated?.Invoke();
-        //    return _stoneRecipe.ResultIngredient;
-        //}
-
+        HashSet<string> ingredientsSet = new HashSet<string>();
 
         HashSet<Recipe> recipes = new HashSet<Recipe>(_ingredientRecipes[ingredients[0].Data.Name]);
+        ingredientsSet.Add(ingredients[0].Data.Name);
 
         for (int i = 1; i < ingredients.Count; i++)
         {
             recipes.IntersectWith(_ingredientRecipes[ingredients[i].Data.Name]);
+            ingredientsSet.Add(ingredients[i].Data.Name);
         }
+
+        if (ingredientsSet.Count != 3) return _failRecipe.ResultIngredient;
 
         if (recipes.Count > 0)
         {

@@ -10,12 +10,14 @@ public class PointIngredient : MonoBehaviour
     [Header("Endless Item")]
     [SerializeField] private ItemTaked _ingredientItem;
 
+    private AudioSource _audio;
     private Outline _outline;
     public Transform Point => _pointSocket;
     private void Awake()
     {
         _outline = GetComponent<Outline>();
         G.Game.GameStart.AddListener(StartPoint);
+        _audio = GetComponent<AudioSource>();
     }
     private void StartPoint()
     {
@@ -37,6 +39,7 @@ public class PointIngredient : MonoBehaviour
             ItemTaked item = Instantiate(_ingredientItem, _pointSocket);
             item?.UseOutline(false);
             item.Take();
+            _audio.Play();        
     }
     public ItemTaked GetIngredient()
     {

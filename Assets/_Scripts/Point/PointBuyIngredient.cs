@@ -20,7 +20,12 @@ public class PointBuyIngredient : MonoBehaviour
         {
             item.gameObject.SetActive(false);
         }
-        _indexLastBuy = _startOpenIndex; //Добавить загрузку из сохранения TO DO
+        _indexLastBuy = G.SaveManager.LoadIngredients();
+        if (_indexLastBuy < _startOpenIndex)
+        {
+            _indexLastBuy = _startOpenIndex;
+            G.SaveManager.SaveIngredients(_indexLastBuy);
+        }
         for (int i = 0; i < _indexLastBuy; i++)
         {
             _ingredients[i].gameObject.SetActive(true);
@@ -61,6 +66,7 @@ public class PointBuyIngredient : MonoBehaviour
         _ingredientItem.MoveToParent(_ingredients[_indexLastBuy].Point,true);
         _ingredientItem = null;
         _indexLastBuy++;
+        G.SaveManager.SaveIngredients(_indexLastBuy);
         GetNextIngredients();
     }
     private void GetNextIngredients()

@@ -7,6 +7,7 @@ public class PointStend : MonoBehaviour
     [SerializeField] private Transform _pointSocket;            // куда ставить предмет
     [SerializeField] private InteractionPanel _interactionPanel;
     [SerializeField] private InteractionPanel _interactionPanelGet;
+    private AudioSource _audio;
 
     // --- Runtime ---
     [Header("Test")]
@@ -15,6 +16,7 @@ public class PointStend : MonoBehaviour
     private void Awake()
     {
         G.Game.GameStart.AddListener(StartPoint);
+        _audio = GetComponent<AudioSource>();
     }
     private void StartPoint()
     {
@@ -61,6 +63,7 @@ public class PointStend : MonoBehaviour
                 return;
             _currentItem = G.Player.Hand.CurrentItem;
             _currentItem.PutDown(_pointSocket);
+            _audio.Play();
         } 
         else
         {
@@ -72,7 +75,7 @@ public class PointStend : MonoBehaviour
                 item.Take();
                 return;
             }
-
+            _audio.Play();
             _currentItem.Take(); 
             _currentItem = null;
         }
