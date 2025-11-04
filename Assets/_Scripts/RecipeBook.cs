@@ -76,6 +76,8 @@ public class RecipeBook : MonoBehaviour
             _ingredientRecipes[i.Data.Name].Add(_stoneRecipe);
         }
 
+        _ingredientRecipes.Add(_failRecipe.ResultIngredient.Data.Name, new HashSet<Recipe>());
+
 
         G.Game.SetRecipeBook(this);
         List<int> statuses = G.SaveManager.LoadRecipeStatuses();

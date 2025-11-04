@@ -182,7 +182,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.75
+  m_fontSize: 47.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3058053499547811226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420437680057640214, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_fontSize
-      value: 51.45
+      value: 58.25
       objectReference: {fileID: 0}
     - target: {fileID: 7486974270580994760, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_Pivot.x
@@ -831,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420437680057640214, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_fontSize
-      value: 51.45
+      value: 58.25
       objectReference: {fileID: 0}
     - target: {fileID: 7486974270580994760, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_Pivot.x
@@ -969,7 +969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4420437680057640214, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_fontSize
-      value: 51.45
+      value: 58.25
       objectReference: {fileID: 0}
     - target: {fileID: 7486974270580994760, guid: f873a823aed14474ab7ef5f81b6a68f0, type: 3}
       propertyPath: m_Pivot.x
