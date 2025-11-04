@@ -21,4 +21,8 @@ public class GameEntryPoint : MonoBehaviour
         G.GameLoader.ShowLoadingImage(false);
         G.Game.OnGameStart();
     }
+    public void _StartGame()
+    {
+        G.Control.CursorActive = false;
+    }
 }

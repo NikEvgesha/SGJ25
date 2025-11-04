@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   _coinIcon: {fileID: 21300000, guid: 329a774e122493a489c2a671451c5f16, type: 3}
   _insightIcon: {fileID: 21300000, guid: 0d3a83656ae668f458b24bcaa999c47a, type: 3}
-  _startCoinsAmount: 1000
+  _startCoinsAmount: 0
   _startInsightAmount: 10
   _audioBuy: {fileID: 0}
   _audioSell: {fileID: 0}

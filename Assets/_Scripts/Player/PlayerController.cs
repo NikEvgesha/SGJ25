@@ -30,11 +30,9 @@ public class PlayerController : MonoBehaviour
     {
         _controller = GetComponent<CharacterController>();
 
-        if (_lockCursor)
-        {
-            _lockCursor = false;
+            _lockCursor = !_lockCursor;
             G.Control.CursorActive = _lockCursor;
-        }
+        
     }
     private void Update()
     {
