@@ -9,7 +9,7 @@ public class Cauldron : MonoBehaviour
     [SerializeField] private InteractionPanel _interactionPanel;
     [SerializeField] private GameObject _water;
     private AudioSource _audio;
-
+    private CauldronWaterColor _cauldronWaterColor;
     private List<Ingredient> _ingredients = new();
 
     private List<ItemTaked> _listItemsInСauldron = new();
@@ -23,6 +23,7 @@ public class Cauldron : MonoBehaviour
         _water.SetActive(false);
         G.Game.GameStart.AddListener(StartPoint);
         _audio = GetComponent<AudioSource>();
+        _cauldronWaterColor = GetComponent<CauldronWaterColor>();
     }
     private void Start()
     {
@@ -57,6 +58,7 @@ public class Cauldron : MonoBehaviour
     {
         _ingredients.Add(item.Item.Ingredient);
         _water.SetActive(true);
+        _cauldronWaterColor.SetWaterColor(item.Item.Ingredient.Data.Color);
         IngredientsUpdated?.Invoke(_ingredients);
         _audio.Play();
         if (_ingredients.Count >= 3)
