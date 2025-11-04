@@ -87,6 +87,22 @@ PrefabInstance:
       value: It's plant
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Color.r
+      value: 0.9987322
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.BuyPrice
       value: 40
       objectReference: {fileID: 0}

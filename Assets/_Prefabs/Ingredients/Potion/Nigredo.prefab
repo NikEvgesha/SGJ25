@@ -33,6 +33,22 @@ PrefabInstance:
       value: It's Potion
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
+      propertyPath: _data.Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.SellPrice
       value: 30
       objectReference: {fileID: 0}

@@ -11,6 +11,7 @@ public struct IngredientData
     public string hint;
     public ItemType Type;
     public int SellPrice;
+    public Color Color;
 
 
     //public static bool operator ==(IngredientData c1, IngredientData c2)
