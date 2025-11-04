@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: b313e1f54d11465479c81e6decfc31b5, type: 3}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.Name
-      value: Rubedo
+      value: Sch
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.Type
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.hint
-      value: It's Potion
+      value: It's Potion, i guess...
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.SellPrice

@@ -80,7 +80,7 @@ public class InteractionPanel : ManagedBehaviour, IPointerDownHandler, IPointerU
         _priceText.gameObject.SetActive(price != null);
         if (price != null)
         {
-            _priceText.text = "$" + price;
+            _priceText.text = price;
         }
     }
 }

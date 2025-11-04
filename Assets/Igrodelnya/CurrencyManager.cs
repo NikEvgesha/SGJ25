@@ -18,8 +18,7 @@ public class CurrencyManager : MonoBehaviour
     public int Insight { get { return _amount[CurrencyType.Insight]; } }
 
     public UnityEvent<CurrencyType, int> CurrencyChanged;
-    public UnityEvent NoCoins;
-    public UnityEvent NoInsight;
+    public UnityEvent<CurrencyType> NoCurrency;
 
     private void Awake()
     {
@@ -105,14 +104,7 @@ public class CurrencyManager : MonoBehaviour
 
             return true;
         }
-        if (type == CurrencyType.Coin)
-        {
-            NoCoins?.Invoke();
-        }       
-        else
-        {
-            NoInsight?.Invoke();
-        }
+        NoCurrency?.Invoke(type);
 
             return false;
     }

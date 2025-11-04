@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 11da145ea4b7bbe4191faa90a24e1b40, type: 3}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.Name
-      value: Basilisk Scales
+      value: Frog
       objectReference: {fileID: 0}
     - target: {fileID: 4971836816904321703, guid: 66f03c45d9f58494d80da109050fc745, type: 3}
       propertyPath: _data.hint

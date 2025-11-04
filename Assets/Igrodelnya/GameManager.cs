@@ -49,7 +49,13 @@ public class GameManager : MonoBehaviour
     public void SetRecipeBook(RecipeBook book)
     {
         _recipeBook = book;
+        _recipeBook.StoneCreated.AddListener(OnStoneCreated);
         BookReady?.Invoke();
+    }
+
+    private void OnStoneCreated()
+    {
+        Debug.Log("Stone created!");
     }
 
 

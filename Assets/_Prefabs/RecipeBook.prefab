@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d7fd1485a7ecc0f42bcee00972a2d9b6, type: 2}
   - {fileID: 11400000, guid: b739a462aefe7664998d9a2aae53f342, type: 2}
   _failRecipe: {fileID: 11400000, guid: 8463762d5a839f6458733cf72c08e767, type: 2}
+  _stoneRecipe: {fileID: 11400000, guid: ae663965c1f8b2d4a8e38b0349c9df3c, type: 2}
   _leftPage: {fileID: 9017208469413348979}
   _rightPage: {fileID: 4620308130441248417}
   _dynamicPageLeft: {fileID: 8966709282117159691}
@@ -72,6 +73,9 @@ MonoBehaviour:
   _newRecipeSound: {fileID: 8300000, guid: 2c06bba6b9a82e64d92f7350444b56b8, type: 3}
   _pageSound: {fileID: 8300000, guid: 878ece6195d1a2341827a3a48748df09, type: 3}
   NewRecipe:
+    m_PersistentCalls:
+      m_Calls: []
+  StoneCreated:
     m_PersistentCalls:
       m_Calls: []
 --- !u!95 &3565559271133982365

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.ProBuilder.MeshOperations;
@@ -7,6 +8,7 @@ public class RecipeBook : MonoBehaviour
 {
     [SerializeField] private List<Recipe> _recipes;
     [SerializeField] private Recipe _failRecipe;
+    [SerializeField] private Recipe _stoneRecipe;
     [SerializeField] RecipePage _leftPage;
     [SerializeField] RecipePage _rightPage;
     [SerializeField] RecipePage _dynamicPageLeft;
@@ -16,6 +18,7 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] private AudioClip _newRecipeSound;
     [SerializeField] private AudioClip _pageSound;
 
+    private Dictionary<string, HashSet<Recipe>> _ingredientRecipes;
     private AudioSource _audio;
     private GameObject _navigationButtons;
     private Animator _animator;
@@ -31,6 +34,7 @@ public class RecipeBook : MonoBehaviour
     private int nextLeft;
 
     public UnityEvent<Recipe> NewRecipe;
+    public UnityEvent StoneCreated;
 
     private void Awake()
     {
@@ -39,9 +43,35 @@ public class RecipeBook : MonoBehaviour
         _navigationButtons.SetActive(false);
         _unlockedStatus = new Dictionary<Recipe, int>();
         _audio = GetComponent<AudioSource>();
+
+        _ingredientRecipes = new();
+
     }
+
     void Start()
     {
+        foreach (Recipe r in _recipes)
+        {
+            foreach (Ingredient i in r.Ingredients)
+            {
+                if (!_ingredientRecipes.ContainsKey(i.Data.Name))
+                {
+                    _ingredientRecipes.Add(i.Data.Name, new HashSet<Recipe>());
+                }
+                _ingredientRecipes[i.Data.Name].Add(r);
+            }
+        }
+
+        foreach (Ingredient i in _stoneRecipe.Ingredients)
+        {
+            if (!_ingredientRecipes.ContainsKey(i.Data.Name))
+            {
+                _ingredientRecipes.Add(i.Data.Name, new HashSet<Recipe>());
+            }
+            _ingredientRecipes[i.Data.Name].Add(_stoneRecipe);
+        }
+
+
         G.Game.SetRecipeBook(this);
         List<int> statuses = G.SaveManager.LoadRecipeStatuses();
 
@@ -59,6 +89,8 @@ public class RecipeBook : MonoBehaviour
                 _unlockedStatus.Add(recipe, 0);
             }
         }
+
+        _unlockedStatus.Add(_stoneRecipe, 0);
     }
 
 
@@ -232,41 +264,45 @@ public class RecipeBook : MonoBehaviour
     {
         if (ingredients.Count != 3) return _failRecipe.ResultIngredient;
 
+        //bool isStone = true;
+        //foreach (Ingredient i in ingredients)
+        //{
+        //    if (!_stoneRecipe.Ingredients.Contains(i))
+        //    {
+        //        isStone = false;
+        //        break;
+        //    }
+        //}
 
-        foreach (Recipe recipe in _recipes)
+        //if (isStone)
+        //{
+        //    StoneCreated?.Invoke();
+        //    return _stoneRecipe.ResultIngredient;
+        //}
+
+
+        HashSet<Recipe> recipes = new HashSet<Recipe>(_ingredientRecipes[ingredients[0].Data.Name]);
+
+        for (int i = 1; i < ingredients.Count; i++)
         {
-            bool check = true;
-            for (int i = 0; i < ingredients.Count; i++)
-            {
-                bool haveIngredient = false;
-                for (int j = 0; j < recipe.Ingredients.Count; j++)
-                {
-                    if (ingredients[i].Data.Name == recipe.Ingredients[j].Data.Name)
-                    {
-                        haveIngredient = true;
-                        break;
-                    }
-                }
-
-                if (!haveIngredient)
-                    {
-                    check = false;
-                    break;
-                }
-            }
-            if (check)
-            {
-                if (GetUnlockStatus(recipe) != 7)
-                {
-                    UpdateUnlockStatus(recipe);
-                }
-                G.Currency.AddCurrency(CurrencyType.Insight, recipe.InsightReward);
-                return recipe.ResultIngredient;
-            }
-
+            recipes.IntersectWith(_ingredientRecipes[ingredients[i].Data.Name]);
         }
 
+        if (recipes.Count > 0)
+        {
+            Recipe recipe = recipes.ToList()[0];
+            if (GetUnlockStatus(recipe) != 7)
+            {
+                UpdateUnlockStatus(recipe);
+            }
+            G.Currency.AddCurrency(CurrencyType.Insight, recipe.InsightReward);
+            if (recipe == _stoneRecipe)
+                StoneCreated?.Invoke();
+            return recipe.ResultIngredient;
+        }
         return _failRecipe.ResultIngredient;
+
+       
 
     }
 
