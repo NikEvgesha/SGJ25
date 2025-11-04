@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class SaveManager : MonoBehaviour
 {
@@ -91,6 +90,14 @@ public class SaveManager : MonoBehaviour
     public void Reset()
     {
         PlayerPrefs.DeleteAll();
+    }
+    public bool GetTutorialProgress()
+    {
+        return PlayerPrefs.GetInt("TutorialCompleted", 0) == 1;
+    }
+    public void SaveTutorialProgress(bool completed)
+    {
+        PlayerPrefs.SetInt("TutorialCompleted", completed ? 1 : 0);
     }
 
 }

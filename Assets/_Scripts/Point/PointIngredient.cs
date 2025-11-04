@@ -36,10 +36,11 @@ public class PointIngredient : MonoBehaviour
     }
     public void _Interact()
     {
-            ItemTaked item = Instantiate(_ingredientItem, _pointSocket);
-            item?.UseOutline(false);
-            item.Take();
-            _audio.Play();        
+        ItemTaked item = Instantiate(_ingredientItem, _pointSocket);
+        item?.UseOutline(false);
+        item.Take();
+        _audio.Play();
+        _PlayerView(true);
     }
     public ItemTaked GetIngredient()
     {
