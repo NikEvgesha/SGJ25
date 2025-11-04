@@ -8,7 +8,8 @@ public class GameEntryPoint : MonoBehaviour
     //[SerializeField] private GameObject _lobbyUI;
     //[SerializeField] private PlayerManager _player;
     //[SerializeField] private UI _ui;
-    
+    [SerializeField] private Transform _spawnPoint;
+
 
 
     private void Start()
@@ -16,7 +17,7 @@ public class GameEntryPoint : MonoBehaviour
         //Instantiate(_lobbyUI);
         Instantiate(_gameUI);
         Instantiate(_player);
-
+        _player.transform.position = _spawnPoint.position;
         G.GameLoader.ShowLoadingImage(false);
         G.Game.OnGameStart();
     }
