@@ -46,7 +46,7 @@ public class PotIngredientsUI : MonoBehaviour
 
     private IEnumerator Disappear()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         foreach (PotSlot slot in _slots)
         {
             slot.gameObject.SetActive(false);
