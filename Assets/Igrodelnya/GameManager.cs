@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private RecipeBook _recipeBook;
-    private Player _player;
     private Cauldron _cauldron;
+    private GameEndRoom _gameEndRoom;
 
     public RecipeBook RecipeBook => _recipeBook;
-    public Player Player => _player;
     public Cauldron Cauldron => _cauldron;
+    public GameEndRoom GameEndRoom => _gameEndRoom;
 
     [HideInInspector]
     public UnityEvent<bool> GameEnd;
@@ -65,7 +66,20 @@ public class GameManager : MonoBehaviour
 
     public void OnStoneAccepted()
     {
-        Debug.Log("Stone accepted!");
+        G.Player.Hand.CurrentItem.PutDown(G.Player.transform, true, true);
+        G.Player.Teleport(_gameEndRoom.TeleportPoint);
+    }
+
+    public void SetGameEndRoom(GameEndRoom room)
+    {
+        _gameEndRoom = room;
+    }
+
+    public void Restart()
+    {
+        G.SaveManager.Reset();
+        G.Currency.Reset();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

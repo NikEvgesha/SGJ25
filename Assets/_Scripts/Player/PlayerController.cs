@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController _controller;
     private Vector3 _velocity; // вертикальна€ скорость/гравитаци€
     private float _pitch;      // локальный наклон камеры по оси X
+    private bool _teleport;
+    private Transform _teleportPoint;
 
     private void Awake()
     {
@@ -72,6 +74,15 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+
+        if (_teleport)
+        {
+            _controller.enabled = false;
+            transform.position = _teleportPoint.position;
+            _controller.enabled = true;
+            _teleport = false;
+        }
+
         bool grounded = _controller.isGrounded;
 
         // —тара€ система ввода: Horizontal (A/D), Vertical (W/S)
@@ -111,5 +122,11 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+    }
+
+    public void Teleport(Transform point)
+    {
+        _teleportPoint = point;
+        _teleport = true;
     }
 }

@@ -14,4 +14,10 @@ public class Player : MonoBehaviour
     }
     public PlayerController Controller => _controller;
     public HandHolder Hand => _handHolder;
+
+
+    public void Teleport(Transform point)
+    {
+        _controller.Teleport(point);
+    }
 }

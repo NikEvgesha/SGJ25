@@ -62,11 +62,11 @@ public class CurrencyManager : MonoBehaviour
     }
 
 
-    //public void Reset()
-    //{
-    //    _amount = 0;
-    //    AddCurrency(_startCoinsAmount);
-    //}
+    public void Reset()
+    {
+        _amount[CurrencyType.Coin] = 0;
+        _amount[CurrencyType.Insight] = 0;
+    }
 
     public void AddCurrency(CurrencyType type, int amount)
     {
@@ -116,5 +116,7 @@ public class CurrencyManager : MonoBehaviour
     {
         return (type == CurrencyType.Coin) ? _coinIcon : _insightIcon;
     }
+
+
     
 }

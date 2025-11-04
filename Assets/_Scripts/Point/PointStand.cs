@@ -67,15 +67,16 @@ public class PointStend : MonoBehaviour
         } 
         else
         {
+            _audio.Play();
             if (!G.Player.Hand.IsEmpty)
             {
                 ItemTaked item = _currentItem;
                 _currentItem = G.Player.Hand.CurrentItem;
                 _currentItem.PutDown(_pointSocket);
                 item.Take();
+                
                 return;
             }
-            _audio.Play();
             _currentItem.Take(); 
             _currentItem = null;
         }

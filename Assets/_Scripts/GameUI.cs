@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameUI : MonoBehaviour
 {
     [SerializeField] private GameObject _gameEndPanel;
+    [SerializeField] private GameObject _restart;
     private NewRecipeNotification _notification;
     private SettingUI settings;
 
@@ -15,6 +16,7 @@ public class GameUI : MonoBehaviour
     }
     private void Start() 
     {
+        _restart.SetActive(false);
         G.Input.AMenu += OpenSettings;
         G.Input.ABook += OpenRecipeBook;
         G.Game.BookReady.AddListener(() => { 
@@ -60,8 +62,15 @@ public class GameUI : MonoBehaviour
 
     public void OnStoneAccepted()
     {
+        G.Control.CursorActive = false;
         _gameEndPanel.gameObject.SetActive(false);
         G.Game.OnStoneAccepted();
+        _restart.SetActive(true);
+    }
+
+    public void OnRestart()
+    {
+        G.Game.Restart();
     }
 
 }
