@@ -52,6 +52,11 @@ public class RecipeBook : MonoBehaviour
     {
         foreach (Recipe r in _recipes)
         {
+            if (!_ingredientRecipes.ContainsKey(r.ResultIngredient.Data.Name))
+            {
+                _ingredientRecipes.Add(r.ResultIngredient.Data.Name, new HashSet<Recipe>());
+            }
+
             foreach (Ingredient i in r.Ingredients)
             {
                 if (!_ingredientRecipes.ContainsKey(i.Data.Name))
@@ -265,6 +270,7 @@ public class RecipeBook : MonoBehaviour
         if (ingredients.Count != 3) return _failRecipe.ResultIngredient;
 
         HashSet<string> ingredientsSet = new HashSet<string>();
+
 
         HashSet<Recipe> recipes = new HashSet<Recipe>(_ingredientRecipes[ingredients[0].Data.Name]);
         ingredientsSet.Add(ingredients[0].Data.Name);
